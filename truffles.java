@@ -54,9 +54,9 @@ class truffles {
     }
     int[][] truffles = new int[rowcount][colcount];   
     //fill in matrix using file
-    BufferedReader readmatrix = new BufferedReader(readfile);
-    for(int i = 0; i < rowcount; i++) {
-        for(int j = 0; j < colcount; j++) {
+    Scanner input = new Scanner(new File("src/array.txt"));
+    for(int i = 0; i < rowcount; ++i) {
+        for(int j = 0; j < colcount; ++j) {
             if(input.hasNextInt()) {
                 truffles[i][j] = input.nextInt();
             }
