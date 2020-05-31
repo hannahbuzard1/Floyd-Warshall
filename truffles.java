@@ -31,6 +31,8 @@ class truffles {
                 else if (j== n-1) {
                     if ( Math.max(arr[i-1][j], arr[i-1][j-1]) == arr[i-1][j]) {
                         dist[i][j] = arr[i-1][j] + dist[i-1][j];
+                    } else {
+                        dist[i][j] = arr[i-1][j-1] + dist[i-1][j-1];
                     }
                 }
                 else {
