@@ -40,29 +40,34 @@ class truffles {
   
     public static void main(String args[]) { 
     //get row and column sizes from file
-    FileReader readfile = new FileReader(args[0]);
-    BufferedReader rowreader = new BufferedReader(readfile);
-    int colcount = 0;
-    int rowcount = 0;
-    Scanner input = new Scanner (new File("test.txt"));
-    // pre-read in the number of rows/columns
-    while(input.hasNextLine()) {
-        rowcount++;
-        Scanner colReader = new Scanner(input.nextLine());
-        while(colReader.hasNextInt()) {
-            colcount++;;
-        }
-    }
-    int[][] truffles = new int[rowcount][colcount];   
-    //fill in matrix using file
-    input = new Scanner(new File("test.txt"));
-    for(int i = 0; i < rowcount; ++i) {
-        for(int j = 0; j < colcount; ++j) {
-            if(input.hasNextInt()) {
-                truffles[i][j] = input.nextInt();
+    try {
+        FileReader readfile = new FileReader(args[0]);
+        BufferedReader rowreader = new BufferedReader(readfile);
+        int colcount = 0;
+        int rowcount = 0;
+        Scanner input = new Scanner (new File("test.txt"));
+        // pre-read in the number of rows/columns
+        while(input.hasNextLine()) {
+            rowcount++;
+            Scanner colReader = new Scanner(input.nextLine());
+            while(colReader.hasNextInt()) {
+                colcount++;;
             }
         }
+        int[][] truffles = new int[rowcount][colcount];   
+        //fill in matrix using file
+        input = new Scanner(new File("test.txt"));
+        for(int i = 0; i < rowcount; ++i) {
+            for(int j = 0; j < colcount; ++j) {
+                if(input.hasNextInt()) {
+                    truffles[i][j] = input.nextInt();
+                }
+            }
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+
     //print matrix to check for correctness
     for(int i = 0; i < rowcount; i++) {
         for(int j = 0; j < colcount; j++) {
