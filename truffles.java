@@ -44,17 +44,18 @@ class truffles {
     BufferedReader rowreader = new BufferedReader(readfile);
     int colcount = 0;
     int rowcount = 0;
-    Scanner input = new Scanner (new File("src/array.txt"));
-    while(rowreader.hasNextLine()) {
-        rowcount = rowcount + 1;
-        Bufferedreader colReader = new BufferedReader(input.nextLine());
+    Scanner input = new Scanner (new File("test.txt"));
+    // pre-read in the number of rows/columns
+    while(input.hasNextLine()) {
+        rowcount++;
+        Scanner colReader = new Scanner(input.nextLine());
         while(colReader.hasNextInt()) {
-            colcount = colcount + 1;
+            colcount++;;
         }
     }
     int[][] truffles = new int[rowcount][colcount];   
     //fill in matrix using file
-    Scanner input = new Scanner(new File("src/array.txt"));
+    Scanner input = new Scanner(new File("test.txt"));
     for(int i = 0; i < rowcount; ++i) {
         for(int j = 0; j < colcount; ++j) {
             if(input.hasNextInt()) {
