@@ -27,13 +27,13 @@ class truffles {
                     dist[i][j] = arr[i][j];
                 }
                 else if (j==0) {
-                    dist[i][j] = Math.max(arr[i-1][j], arr[i+1][j+1]);
+                    dist[i][j] = Math.max(arr[i-1][j], arr[i-1][j-1]);
                 }
                 else if (j== n-1) {
                     dist[i][j] = Math.max(arr[i-1][j], arr[i-1][j-1]);
                 }
                 else {
-                    dist[i][j] = Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i+1][j+1])); 
+                    dist[i][j] = Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i-1][j+1])); 
                 }
             }
         }
