@@ -47,11 +47,10 @@ class truffles {
         System.out.println("Getting m and n values");
         FileReader readfile = new FileReader(args[0]);
         BufferedReader rowreader = new BufferedReader(readfile);
-        Scanner input = new Scanner (new File("test.txt"));
         // pre-read in the number of rows/columns
-        while(input.hasNextLine()) {
+        while(rowreader.hasNextLine()) {
             rowcount++;
-            Scanner colReader = new Scanner(input.nextLine());
+            BufferedReader colReader = new BufferedReader(rowreader.readLine());
             while(colReader.hasNextInt()) {
                 colcount++;;
             }
