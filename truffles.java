@@ -28,6 +28,8 @@ class truffles {
                     dist[i][j] = Math.max(arr[i-1][j], arr[i+1][j+1]);
                 }
                 else {
+                    System.out.println(i);
+                    System.out.println(j);
                     dist[i][j] = Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i+1][j+1])); 
                 }
             }
@@ -62,8 +64,9 @@ class truffles {
     //print matrix to check for correctness
     for(int i = 0; i < rowcount; i++) {
         for(int j = 0; j < colcount; j++) {
-            System.out.println(truffles[i][j]);
+            System.out.print(truffles[i][j]);
         }
+        System.out.println("");
     }
     //make call to function to find max path 
     int max = getValue(truffles, rowcount, colcount);
