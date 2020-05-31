@@ -29,30 +29,10 @@ class truffles {
                 dist[i][j] = Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i+1][j+1]); 
             }
         //get path and print path
-        backtrace(dist, m,n);
+        
         //get max truffles and return to main
         return dist[n-1][m-1]
     } 
-    public int[] backtrace(int trace[][], int m, int n) {
-        //base case
-        if (i == 0 and j == 0) {
-            return;
-        }
-        down = dist[i-1][j]
-        diagonalright = dist[i][j-1]
-        diagonalleft = dist[i-1][j-1]
-    
-        if(min(left,up,diagonal) == down):
-            BT.append('i')
-            backtrace(dist, i-1,j)
-        if(min(left,up,diagonal) == leftdiagonal):
-            BT.append('d')
-            backtrace(dist,i,j-1)
-        if(min(left,up,diagonal) == rightdiagonal):
-            BT.append('s')
-            backtrace(dist, (i-1), j-1)    
-        //need to reverse list
-    }
   
     public static void main(String args[]) { 
     //get row and column sizes from file
