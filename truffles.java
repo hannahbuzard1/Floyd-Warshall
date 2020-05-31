@@ -41,24 +41,9 @@ class truffles {
     public static void main(String args[]) { 
     System.out.println("In main");
     //get row and column sizes from file
-    int colcount = 0;
-    int rowcount = 0;
-    try {
-        System.out.println("Getting m and n values");
-        FileReader readfile = new FileReader(args[0]);
-        BufferedReader rowreader = new BufferedReader(readfile);
-        // pre-read in the number of rows/columns
-        while(rowreader.hasNextLine()) {
-            rowcount++;
-            BufferedReader colReader = new BufferedReader(rowreader.readLine());
-            while(colReader.hasNextInt()) {
-                colcount++;;
-            }
-        }
-    }  catch (IOException e) {
-        e.printStackTrace();
-    } 
-        int[][] truffles = new int[rowcount][colcount];   
+    int colcount = 3;
+    int rowcount = 3;
+    int[][] truffles = new int[rowcount][colcount];   
     try {
         System.out.println("Filling truffles");
         //fill in matrix using file
