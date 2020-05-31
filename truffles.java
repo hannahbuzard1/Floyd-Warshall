@@ -54,7 +54,11 @@ class truffles {
                 colcount++;;
             }
         }
+    }  catch (IOException e) {
+        e.printStackTrace();
+    } 
         int[][] truffles = new int[rowcount][colcount];   
+    try {
         //fill in matrix using file
         input = new Scanner(new File("test.txt"));
         for(int i = 0; i < rowcount; ++i) {
