@@ -9,7 +9,7 @@ import java.util.Collections;
 class truffles { 
     
     static int getValue(int arr[][], int m, int n) { 
-        int[][] pred = new int[m][n];
+        int[][] pred = new int[m+1][n];
         for (int i = 0; i< m; i++) {
             for (int j =0; j< n; j++) {
                 pred[i][j] = 0;
@@ -60,7 +60,31 @@ class truffles {
                 }
             }
         }
-        for (int i = 0; i< m; i++) {
+        for(int j=0; j<n; j++) {
+            if(j==0) {
+                if(Math.max(arr[i-1][j], arr[i-1][j+1]) == arr[i-1][j]) {
+                    pred[m][j] = arr[i-1][j];
+                } else {
+                    pred[m][j] = arr[i-1][j+1];
+                }    
+            }
+            else if(j== n-1) {
+            if ( Math.max(arr[i-1][j], arr[i-1][j-1]) == arr[i-1][j]) {
+                    pred[m][j] = arr[i-1][j];
+                } else {
+                    pred[m][j] = arr[i-1][j-1];
+                }    
+            } else {
+                if(Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i-1][j+1])) == arr[i-1][j]) {
+                    pred[m][j] = arr[i-1][j];
+                } else if (Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i-1][j+1])) == arr[i-1][j-1]) {
+                    pred[m][j] = arr[i-1][j-1];
+                } else {
+                    pred[m][j] = arr[i-1][j+1];
+                }    
+            }
+        }
+        for (int i = 0; i< m+1; i++) {
             for (int j =0; j< n; j++) {
                 System.out.print(dist[i][j]);
                 System.out.print(" ");
