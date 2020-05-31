@@ -16,8 +16,8 @@ class truffles {
                 dist[i][j] = 0;
             }
         }
-        for (int j = 1; j<= m; j++) {
-            for (int i =0; i<= n; i++) {
+        for (int j = 1; j< m; j++) {
+            for (int i =0; i< n; i++) {
                 if (i==0 && j==0) {
                     dist[i][j] = arr[i][j];
                 }
@@ -65,6 +65,7 @@ class truffles {
     for(int i = 0; i < rowcount; i++) {
         for(int j = 0; j < colcount; j++) {
             System.out.print(truffles[i][j]);
+            System.out.print(" ");
         }
         System.out.println("");
     }
