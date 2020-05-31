@@ -39,10 +39,12 @@ class truffles {
     } 
   
     public static void main(String args[]) { 
+    System.out.println("In main");
     //get row and column sizes from file
     int colcount = 0;
     int rowcount = 0;
     try {
+        System.out.println("Getting m and n values");
         FileReader readfile = new FileReader(args[0]);
         BufferedReader rowreader = new BufferedReader(readfile);
         Scanner input = new Scanner (new File("test.txt"));
@@ -59,6 +61,7 @@ class truffles {
     } 
         int[][] truffles = new int[rowcount][colcount];   
     try {
+        System.out.println("Filling truffles");
         //fill in matrix using file
         Scanner input = new Scanner(new File("test.txt"));
         for(int i = 0; i < rowcount; ++i) {
