@@ -18,8 +18,6 @@ class truffles {
         }
         for (int i = 0; i< m; i++) {
             for (int j =0; j< n; j++) {
-                System.out.println(i);
-                System.out.println(j);
                 if(i==0) {
                     dist[i][j] = arr[i][j];
                 }
@@ -34,7 +32,13 @@ class truffles {
                 }
             }
         }
-        //get path and print path
+        for (int i = 0; i< m; i++) {
+            for (int j =0; j< n; j++) {
+                System.out.print(dist[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println("");
+        }
         
         //get max truffles and return to main
         return dist[n-1][m-1];
@@ -59,15 +63,6 @@ class truffles {
         }
     } catch (IOException e) {
         e.printStackTrace();
-    }
-
-    //print matrix to check for correctness
-    for(int i = 0; i < rowcount; i++) {
-        for(int j = 0; j < colcount; j++) {
-            System.out.print(truffles[i][j]);
-            System.out.print(" ");
-        }
-        System.out.println("");
     }
     //make call to function to find max path 
     int max = getValue(truffles, rowcount, colcount);
