@@ -9,6 +9,7 @@ import java.util.Collections;
 class truffles { 
     
     static int getValue(int arr[][], int m, int n) { 
+        ArrayList<Integer> pred = new ArrayList<Integer>();
         //initalize resulting array
         int[][] dist = new int[m][n]; //not correct syntax, fix this
         for (int i=0; i<m; i++) {
@@ -24,24 +25,31 @@ class truffles {
                 else if (j==0) {
                     if(Math.max(arr[i-1][j], arr[i-1][j+1]) == arr[i-1][j]) {
                         dist[i][j] = arr[i][j] + dist[i-1][j];
+                        pred.add(arr[i-1][j]);
                     } else {
                         dist[i][j] = arr[i][j] + dist[i-1][j+1];
+                        pred.add(arr[i-1][j+1]);
                     }
                 }
                 else if (j== n-1) {
                     if ( Math.max(arr[i-1][j], arr[i-1][j-1]) == arr[i-1][j]) {
                         dist[i][j] = arr[i][j] + dist[i-1][j];
+                        pred.add(arr[i-1][j]);
                     } else {
                         dist[i][j] = arr[i][j] + dist[i-1][j-1];
+                        pred.add(arr[i-1][j-1]);
                     }
                 }
                 else {
                     if(Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i-1][j+1])) == arr[i-1][j]) {
                         dist[i][j] = arr[i][j] + dist[i-1][j];
+                        pred.add(arr[i-1][j]);
                     } else if (Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i-1][j+1])) == arr[i-1][j-1]) {
                         dist[i][j] = arr[i][j] + dist[i-1][j-1];
+                        pred.add(arr[i-1][j-1]);
                     } else {
                         dist[i][j] = arr[i][j] + dist[i-1][j+1];
+                        pred.add(arr[i-1][j+1]);
                     }
                 }
             }
@@ -53,6 +61,8 @@ class truffles {
             }
             System.out.println("");
         }
+        System.out.println("Path:");
+        System.out.println(Arrays.toString(pred.toArray()));
         
         //get max truffles and return to main
         return dist[n-1][m-1];
