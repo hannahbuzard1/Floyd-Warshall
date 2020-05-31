@@ -40,11 +40,11 @@ class truffles {
   
     public static void main(String args[]) { 
     //get row and column sizes from file
+    int colcount = 0;
+    int rowcount = 0;
     try {
         FileReader readfile = new FileReader(args[0]);
         BufferedReader rowreader = new BufferedReader(readfile);
-        int colcount = 0;
-        int rowcount = 0;
         Scanner input = new Scanner (new File("test.txt"));
         // pre-read in the number of rows/columns
         while(input.hasNextLine()) {
