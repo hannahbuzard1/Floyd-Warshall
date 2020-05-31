@@ -8,30 +8,32 @@ class truffles {
     
     int getValue(int arr[][], int m, int n) { 
         //initalize resulting array
-        int dist[m][n]; //not correct syntax, fix this
+        int[][] dist = new int[m][n]; //not correct syntax, fix this
         for (int i=0; i<m; i++) {
             for (int j=0; j<n; j++) {
                 dist[i][j] = 0;
             }
         }
-        for j in range(1,m):
-            for i in range(1,n):
-            if (i==0 && j==0) {
-                dist[i][j] = arr[i][j];
+        for (int j = 1; j<= m; j++) {
+            for (int i =0; i<= n; i++) {
+                if (i==0 && j==0) {
+                    dist[i][j] = arr[i][j];
+                }
+                else if(i==0) {
+                    dist[i][j] = arr[i][j];
+                }
+                else if (j==0) {
+                    dist[i][j] = Math.max(arr[i-1][j], arr[i+1][j+1]);
+                }
+                else {
+                    dist[i][j] = Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i+1][j+1]); 
+                }
             }
-            else if(i==0) {
-                dist[i][j] = arr[i][j];
-            }
-            else if (j==0) {
-                dist[i][j] = Math.max(arr[i-1][j], arr[i+1][j+1]);
-            }
-            else {
-                dist[i][j] = Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i+1][j+1]); 
-            }
+        }
         //get path and print path
         
         //get max truffles and return to main
-        return dist[n-1][m-1]
+        return dist[n-1][m-1];
     } 
   
     public static void main(String args[]) { 
