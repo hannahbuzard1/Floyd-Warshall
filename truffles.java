@@ -20,20 +20,17 @@ class truffles {
             for (int j =0; j< n; j++) {
                 System.out.println(i);
                 System.out.println(j);
-                if (i==0 && j==0) {
-                    dist[i][j] = arr[i][j];
-                }
-                else if(i==0) {
+                if(i==0) {
                     dist[i][j] = arr[i][j];
                 }
                 else if (j==0) {
-                    dist[i][j] = Math.max(arr[i-1][j], arr[i-1][j-1]);
+                    dist[i][j] = Math.max(arr[i-1][j], arr[i-1][j-1]) + arr[i][j];
                 }
                 else if (j== n-1) {
-                    dist[i][j] = Math.max(arr[i-1][j], arr[i-1][j+1]);
+                    dist[i][j] = Math.max(arr[i-1][j], arr[i-1][j+1]) + arr[i][j];
                 }
                 else {
-                    dist[i][j] = Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i-1][j+1])); 
+                    dist[i][j] = Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i-1][j+1])) + arr[i][j]; 
                 }
             }
         }
