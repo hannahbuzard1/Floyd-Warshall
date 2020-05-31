@@ -69,7 +69,7 @@ class truffles {
         }
     }
     //make call to function to find max path 
-    int max = getValue(truffles, m, n);
+    int max = getValue(truffles, rowcount, colcount);
     System.out.println("Maximum truffles picked: ");
     System.out.println(max);
     
