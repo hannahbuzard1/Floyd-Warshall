@@ -40,8 +40,8 @@ class truffles {
     //get row and column sizes from file
     FileReader readfile = new FileReader(args[0]);
     BufferedReader rowreader = new BufferedReader(readfile);
-    colcount = 0;
-    rowcount = 0;
+    int colcount = 0;
+    int rowcount = 0;
     Scanner input = new Scanner (new File("src/array.txt"));
     while(rowreader.hasNextLine()) {
         rowcount = rowcount + 1;
