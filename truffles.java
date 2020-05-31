@@ -18,6 +18,8 @@ class truffles {
         }
         for (int j = 1; j< m; j++) {
             for (int i =0; i< n; i++) {
+                System.out.println(i);
+                System.out.println(j);
                 if (i==0 && j==0) {
                     dist[i][j] = arr[i][j];
                 }
@@ -27,9 +29,10 @@ class truffles {
                 else if (j==0) {
                     dist[i][j] = Math.max(arr[i-1][j], arr[i+1][j+1]);
                 }
+                else if (j== n-1) {
+                    dist[i][j] = Math.max(arr[i-1][j], arr[i-1][j-1])
+                }
                 else {
-                    System.out.println(i);
-                    System.out.println(j);
                     dist[i][j] = Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i+1][j+1])); 
                 }
             }
