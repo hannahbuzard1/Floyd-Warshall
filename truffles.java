@@ -85,13 +85,6 @@ class truffles {
                 }    
             }
         }
-        for (int i = 0; i< m; i++) {
-            for (int j =0; j< n; j++) {
-                System.out.print(dist[i][j]);
-                System.out.print(" ");
-            }
-            System.out.println("");
-        }
         System.out.println("Path:");
         for (int i = m; i > 0; i--) {
             int max = 0;
@@ -100,7 +93,8 @@ class truffles {
                     max = pred[i][j];
                 }
             }
-            System.out.print(max);
+            System.out.print(max)
+            System.out.print(" ");
         }
         System.out.println("");
         
