@@ -86,6 +86,7 @@ class truffles {
             }
         }
         System.out.println("Path:");
+        ArrayList<Integer> path = new ArrayList<Integer>();
         for (int i = m; i > 0; i--) {
             int max = 0;
             for(int j = n-1; j >= 0; j--) {
@@ -93,11 +94,10 @@ class truffles {
                     max = pred[i][j];
                 }
             }
-            System.out.print(max);
-            System.out.print(" ");
+            path.add(max);
         }
-        System.out.println("");
-        
+        Collections.reverse(path);
+        System.out.println(Arrays.toString(path.toArray()));
         //get max truffles and return to main
         return dist[n-1][m-1];
     } 
