@@ -93,7 +93,7 @@ class truffles {
                     max = pred[i][j];
                 }
             }
-            System.out.print(max)
+            System.out.print(max);
             System.out.print(" ");
         }
         System.out.println("");
