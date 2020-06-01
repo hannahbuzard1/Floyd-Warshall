@@ -93,26 +93,27 @@ class truffles {
             System.out.println("");
         }
         System.out.println("Path:");
-        for (int i = 0; i< m+1; i++) {
-            for (int j =0; j< n; j++) {
-                System.out.print(pred[i][j]);
-                System.out.print(" ");
+        for (int i = m; i > 0; i--) {
+            int max = 0;
+            for(int j = n-1; j >= 0; j--) {
+                if (pred[i][j] > max) {
+                    max = pred[i][j];
+                }
             }
-            System.out.println("");
+            System.out.print(max);
         }
+        System.out.println("");
         
         //get max truffles and return to main
         return dist[n-1][m-1];
     } 
   
     public static void main(String args[]) { 
-    System.out.println("In main");
     //get row and column sizes from file
     int colcount = 3;
     int rowcount = 3;
     int[][] truffles = new int[rowcount][colcount];   
     try {
-        System.out.println("Filling truffles");
         //fill in matrix using file
         Scanner input = new Scanner(new File("test.txt"));
         for(int i = 0; i < rowcount; ++i) {
