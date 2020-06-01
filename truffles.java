@@ -60,7 +60,7 @@ class truffles {
                 }
             }
         }
-        int ivar = 3;
+        int ivar = m;
         for(int j=0; j<n; j++) {
             if(j==0) {
                 if(Math.max(arr[ivar-1][j], arr[ivar-1][j+1]) == arr[ivar-1][j]) {
@@ -104,8 +104,8 @@ class truffles {
   
     public static void main(String args[]) { 
     //get row and column sizes from file
-    int colcount = 3;
-    int rowcount = 3;
+    int colcount = 4;
+    int rowcount = 4;
     int[][] truffles = new int[rowcount][colcount];   
     try {
         //fill in matrix using file
