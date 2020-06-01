@@ -60,7 +60,7 @@ class truffles {
                 }
             }
         }
-        i = 3;
+        int i = 3;
         for(int j=0; j<n; j++) {
             if(j==0) {
                 if(Math.max(arr[i-1][j], arr[i-1][j+1]) == arr[i-1][j]) {
