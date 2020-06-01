@@ -85,7 +85,7 @@ class truffles {
                 }    
             }
         }
-        for (int i = 0; i< m+1; i++) {
+        for (int i = 0; i< m; i++) {
             for (int j =0; j< n; j++) {
                 System.out.print(dist[i][j]);
                 System.out.print(" ");
@@ -93,7 +93,7 @@ class truffles {
             System.out.println("");
         }
         System.out.println("Path:");
-        for (int i = 0; i< m; i++) {
+        for (int i = 0; i< m+1; i++) {
             for (int j =0; j< n; j++) {
                 System.out.print(pred[i][j]);
                 System.out.print(" ");
