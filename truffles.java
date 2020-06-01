@@ -60,28 +60,28 @@ class truffles {
                 }
             }
         }
-        i = 3;
+        int ivar = 3;
         for(int j=0; j<n; j++) {
             if(j==0) {
-                if(Math.max(arr[i-1][j], arr[i-1][j+1]) == arr[i-1][j]) {
-                    pred[m][j] = arr[i-1][j];
+                if(Math.max(arr[ivar-1][j], arr[ivar-1][j+1]) == arr[ivar-1][j]) {
+                    pred[m][j] = arr[ivar-1][j];
                 } else {
-                    pred[m][j] = arr[i-1][j+1];
+                    pred[m][j] = arr[ivar-1][j+1];
                 }    
             }
             else if(j== n-1) {
-            if ( Math.max(arr[i-1][j], arr[i-1][j-1]) == arr[i-1][j]) {
-                    pred[m][j] = arr[i-1][j];
+            if ( Math.max(arr[ivar-1][j], arr[ivar-1][j-1]) == arr[ivar-1][j]) {
+                    pred[m][j] = arr[ivar-1][j];
                 } else {
-                    pred[m][j] = arr[i-1][j-1];
+                    pred[m][j] = arr[ivar-1][j-1];
                 }    
             } else {
-                if(Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i-1][j+1])) == arr[i-1][j]) {
-                    pred[m][j] = arr[i-1][j];
-                } else if (Math.max(arr[i-1][j], Math.max(arr[i-1][j-1], arr[i-1][j+1])) == arr[i-1][j-1]) {
-                    pred[m][j] = arr[i-1][j-1];
+                if(Math.max(arr[ivar-1][j], Math.max(arr[ivar-1][j-1], arr[ivar-1][j+1])) == arr[ivar-1][j]) {
+                    pred[m][j] = arr[ivar-1][j];
+                } else if (Math.max(arr[ivar-1][j], Math.max(arr[ivar-1][j-1], arr[ivar-1][j+1])) == arr[ivar-1][j-1]) {
+                    pred[m][j] = arr[ivar-1][j-1];
                 } else {
-                    pred[m][j] = arr[i-1][j+1];
+                    pred[m][j] = arr[ivar-1][j+1];
                 }    
             }
         }
