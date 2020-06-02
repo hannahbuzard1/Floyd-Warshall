@@ -7,6 +7,37 @@ import java.lang.*;
 import java.util.Collections;
 
 public class truffles2 {
+    public static void FloydWarshall(int[][] matrix, int nodes) {
+       int dist[][] = new int[nodes][nodes]; 
+        int i, j, k; 
+
+        for (i = 0; i < V; i++) {
+            for (j = 0; j < V; j++) {
+                dist[i][j] = matrix[i][j]; 
+            }
+        }
+                
+        for (k = 0; k < V; k++) { 
+            // Pick all vertices as source one by one 
+            for (i = 0; i < V; i++)  { 
+                // Pick all vertices as destination for the 
+                // above picked source 
+                for (j = 0; j < V; j++) { 
+                    // If vertex k is on the shortest path from 
+                    // i to j, then update the value of dist[i][j] 
+                    if (dist[i][k] + dist[k][j] < dist[i][j]) 
+                        dist[i][j] = dist[i][k] + dist[k][j]; 
+                } 
+            } 
+        }
+        System.out.println("New matrix:");
+        for (i = 0; i < V; i++) {
+            for (j = 0; j < V; j++) {
+                System.out.print(dist[i][j]); 
+            }
+            System.out.println("")
+        }
+    }
     public static void main(String args[]) { 
         //get row and column sizes from file
         int colcount = 3;
@@ -69,5 +100,6 @@ public class truffles2 {
             }
         }
         //call Floyd Warshall with weight matrix
+        FloydWarshall(weights, nodes);
     }
 }
