@@ -11,18 +11,18 @@ public class truffles2 {
        int dist[][] = new int[nodes][nodes]; 
         int i, j, k; 
 
-        for (i = 0; i < V; i++) {
-            for (j = 0; j < V; j++) {
+        for (i = 0; i < nodes; i++) {
+            for (j = 0; j < nodes; j++) {
                 dist[i][j] = matrix[i][j]; 
             }
         }
                 
-        for (k = 0; k < V; k++) { 
+        for (k = 0; k < nodes; k++) { 
             // Pick all vertices as source one by one 
-            for (i = 0; i < V; i++)  { 
+            for (i = 0; i < nodes; i++)  { 
                 // Pick all vertices as destination for the 
                 // above picked source 
-                for (j = 0; j < V; j++) { 
+                for (j = 0; j < nodes; j++) { 
                     // If vertex k is on the shortest path from 
                     // i to j, then update the value of dist[i][j] 
                     if (dist[i][k] + dist[k][j] < dist[i][j]) 
@@ -31,8 +31,8 @@ public class truffles2 {
             } 
         }
         System.out.println("New matrix:");
-        for (i = 0; i < V; i++) {
-            for (j = 0; j < V; j++) {
+        for (i = 0; i < nodes; i++) {
+            for (j = 0; j < nodes; j++) {
                 System.out.print(dist[i][j]); 
             }
             System.out.println("");
