@@ -37,7 +37,10 @@ public class truffles2 {
         }
         for(int i=0; i<nodes; i++) {
             weights[i][i] = nodelist[i];
-            if(i % colcount == 0) {
+            if(nodes - i < rowcount) {
+                weights[i][i] = nodelist[i];
+            }
+            else if(i % colcount == 0) {
                 weights[i][colcount] = nodelist[i] + nodelist[colcount];
                 weights[i][colcount+1] = nodelist[i] + nodelist[colcount + 1];
             }
