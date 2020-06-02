@@ -51,7 +51,7 @@ public class truffles2 {
         System.out.println("Getting paths... may take a while");
         for(int i=0; i<nodes; i++) {
             for (int j = 0; j< nodes; j++) {
-                Collections.copy(currentpath, getPath(i,j));
+                Collections.copy(currentpath, getPath(pred,i,j));
                 max = 0;
                 for (int i = 0; i < currentpath.size(); i++) {
                     max = max + currentpath.get(i);
@@ -67,7 +67,7 @@ public class truffles2 {
         System.out.println(Arrays.toString(path.toArray()));
     }
     
-    public static ArrayList<Integer> getPath (int u, int v) {
+    public static ArrayList<Integer> getPath (int[][] pred, int u, int v) {
         ArrayList<Integer> predpath = new ArrayList<Integer>();
         if (pred[u][v] == null) {
             return predpath;    
