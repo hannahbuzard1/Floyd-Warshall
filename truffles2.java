@@ -39,6 +39,7 @@ public class truffles2 {
                 } else {
                     System.out.print(dist[i][j]); 
                 }
+                System.out.print(" ");
             }
             System.out.println("");
         }
