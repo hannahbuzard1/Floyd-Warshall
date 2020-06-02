@@ -59,7 +59,7 @@ public class truffles2 {
                 for (i = 0; i < currentpath.size(); i++) {
                     max = max + currentpath.get(i);
                 }
-                if(max > maxpath) {
+                if(max < maxpath) {
                     maxpath = max;
                     Collections.copy(path, currentpath);
                 }
