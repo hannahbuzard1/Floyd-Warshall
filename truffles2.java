@@ -7,7 +7,10 @@ import java.lang.*;
 import java.util.Collections;
 
 public class truffles2 {
-    static int INF = 99999;
+    public static int INF = 99999;
+    public static ArrayList<Integer> path = new ArrayList<Integer>();
+    public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
+    public static int maxpath = 0;
     public static void FloydWarshall(int[][] matrix, int nodes) {
        int dist[][] = new int[nodes][nodes]; 
         int i, j, k; 
@@ -43,6 +46,20 @@ public class truffles2 {
             }
             System.out.println("");
         }
+        for(int i=0; i<nodes; i++) {
+            for int j = 0; j< nodes; j++) {
+                max = getPath(i,j);
+                if(max > maxPath) {
+                    maxPath = max;
+                    Collections.copy(path, currentpath);
+                }
+                currentpath.clear();
+            }
+        }
+    }
+    
+    public static void getPath (int i, int j) {
+        //use path reconstruction
     }
     public static void main(String args[]) { 
         //get row and column sizes from file
