@@ -48,6 +48,7 @@ public class truffles2 {
             }
             System.out.println("");
         }
+        System.out.println("Getting paths... may take a while");
         for(int i=0; i<nodes; i++) {
             for int j = 0; j< nodes; j++) {
                 Collections.copy(currentpath, getPath(i,j));
