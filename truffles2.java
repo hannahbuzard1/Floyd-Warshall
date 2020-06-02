@@ -29,8 +29,10 @@ public class truffles2 {
                 for (j = 0; j < nodes; j++) { 
                     // If vertex k is on the shortest path from 
                     // i to j, then update the value of dist[i][j] 
-                    if (dist[i][k] + dist[k][j] < dist[i][j]) 
+                    if (dist[i][k] + dist[k][j] < dist[i][j]) {
                         dist[i][j] = dist[i][k] + dist[k][j]; 
+                        pred[i][j] = pred[i][k];
+                    }
                 } 
             } 
         }
@@ -48,7 +50,11 @@ public class truffles2 {
         }
         for(int i=0; i<nodes; i++) {
             for int j = 0; j< nodes; j++) {
-                max = getPath(i,j);
+                Collections.copy(currentpath, getPath(i,j));
+                max = 0;
+                for (int i = 0; i < currentpath.size(); i++) {
+                    max = max + currentpath.get(i);
+                }
                 if(max > maxPath) {
                     maxPath = max;
                     Collections.copy(path, currentpath);
@@ -56,10 +62,21 @@ public class truffles2 {
                 currentpath.clear();
             }
         }
+        System.out.println("Maximum truffles is: " + max);
+        System.out.println(Arrays.toString(path.toArray()));
     }
     
-    public static void getPath (int i, int j) {
-        //use path reconstruction
+    public static ArrayList<Integer> getPath (int u, int v) {
+        ArrayList<Integer> predpath = new ArrayList<Integer>();
+        if (pred[u][v] == null) {
+            return predpath;    
+        }
+        path.add(u);
+        while (u != v) {
+            u = pred[u][v]
+            predpath.add(u);
+        }
+        return predpath
     }
     public static void main(String args[]) { 
         //get row and column sizes from file
