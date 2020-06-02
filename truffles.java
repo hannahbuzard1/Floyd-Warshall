@@ -99,7 +99,14 @@ class truffles {
         Collections.reverse(path);
         System.out.println(Arrays.toString(path.toArray()));
         //get max truffles and return to main
-        return dist[n-1][m-1];
+        int sum = 0;
+        int i = n-1;
+        for(int j=0; j< m; j++) {
+            if (dist[i][j] > sum) {
+                sum = dist[i][j];
+            }
+        }
+        return sum;
     } 
   
     public static void main(String args[]) { 
