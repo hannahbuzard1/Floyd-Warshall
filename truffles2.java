@@ -35,7 +35,7 @@ public class truffles2 {
             for (j = 0; j < V; j++) {
                 System.out.print(dist[i][j]); 
             }
-            System.out.println("")
+            System.out.println("");
         }
     }
     public static void main(String args[]) { 
