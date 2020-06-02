@@ -10,9 +10,10 @@ public class truffles2 {
     public static int INF = 99999;
     public static ArrayList<Integer> path = new ArrayList<Integer>();
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
-    public static int maxpath = 0;
+    public static int maxpath;
     public static void FloydWarshall(int[][] matrix, int nodes) {
        int dist[][] = new int[nodes][nodes]; 
+       int pred[][] = new int [nodes][nodes];
         int i, j, k; 
 
         for (i = 0; i < nodes; i++) {
