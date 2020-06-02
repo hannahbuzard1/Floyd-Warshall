@@ -35,7 +35,7 @@ public class truffles2 {
         for (i = 0; i < nodes; i++) {
             for (j = 0; j < nodes; j++) {
                 if(dist[i][j] == INF) {
-                    Stem.out.print("INF");
+                    System.out.print("INF");
                 } else {
                     System.out.print(dist[i][j]); 
                 }
