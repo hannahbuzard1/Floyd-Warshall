@@ -1,3 +1,11 @@
+import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
+import java.lang.Math;
+import java.util.Arrays;
+import java.lang.*;
+import java.util.Collections;
+
 public class truffles2 {
     public static void main(String args[]) { 
         //get row and column sizes from file
@@ -33,7 +41,7 @@ public class truffles2 {
                 weights[i][colcount] = nodelist[i] + nodelist[colcount];
                 weights[i][colcount+1] = nodelist[i] + nodelist[colcount + 1];
             }
-            else if (i % colnum - 1) {
+            else if (i % colcount - 1) {
                 weights[i][colcount + 1] = nodelist[i] + nodelist[colcount + 1];
                 weights[i][colcount - 1] = nodelist[i] + nodelist[colcount - 1];
             }
