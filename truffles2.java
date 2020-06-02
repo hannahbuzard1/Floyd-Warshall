@@ -63,5 +63,11 @@ public class truffles2 {
             System.out.println("");
         }
         System.out.println("");
+        for(int i=0; i<nodes; i++) {
+            for (int j=0; j<nodes; j++) {
+                weights[i][j] = -(weights[i][j]);
+            }
+        }
+        //call Floyd Warshall with weight matrix
     }
 }
