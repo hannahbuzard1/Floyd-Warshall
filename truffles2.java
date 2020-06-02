@@ -7,6 +7,7 @@ import java.lang.*;
 import java.util.Collections;
 
 public class truffles2 {
+    static int INF = 99999;
     public static void FloydWarshall(int[][] matrix, int nodes) {
        int dist[][] = new int[nodes][nodes]; 
         int i, j, k; 
@@ -33,7 +34,11 @@ public class truffles2 {
         System.out.println("New matrix:");
         for (i = 0; i < nodes; i++) {
             for (j = 0; j < nodes; j++) {
-                System.out.print(dist[i][j]); 
+                if(dist[i][j] == INF) {
+                    Stem.out.print("INF");
+                } else {
+                    System.out.print(dist[i][j]); 
+                }
             }
             System.out.println("");
         }
@@ -63,7 +68,7 @@ public class truffles2 {
         int[][] weights = new int [nodes][nodes];
         for(int i=0; i<nodes; i++) {
             for (int j=0; j<nodes; j++) {
-                weights[i][j] = 1000;
+                weights[i][j] = INF;
             }
         }
         for(int i=0; i<nodes; i++) {
@@ -94,11 +99,6 @@ public class truffles2 {
             System.out.println("");
         }
         System.out.println("");
-        for(int i=0; i<nodes; i++) {
-            for (int j=0; j<nodes; j++) {
-                weights[i][j] = -(weights[i][j]);
-            }
-        }
         //call Floyd Warshall with weight matrix
         FloydWarshall(weights, nodes);
     }
