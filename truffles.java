@@ -10,7 +10,7 @@ class truffles {
     
     static int getValue(int arr[][], int m, int n) { 
         int[][] pred = new int[m+1][n];
-        for (int i = 0; i< m; i++) {
+        for (int i = 0; i< m + 1; i++) {
             for (int j =0; j< n; j++) {
                 pred[i][j] = 0;
             }
@@ -60,6 +60,15 @@ class truffles {
                 }
             }
         }
+        System.out.println("Predecessor matrix:");
+        for (int i = 0; i< m + 1; i++) {
+            for (int j =0; j< n; j++) {
+                System.out.print(pred[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
         int ivar = m;
         for(int j=0; j<n; j++) {
             if(j==0) {
