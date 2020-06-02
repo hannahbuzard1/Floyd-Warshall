@@ -41,17 +41,17 @@ public class truffles2 {
                 weights[i][i] = nodelist[i];
             }
             else if(i % colcount == 0) {
-                weights[i][colcount] = nodelist[i] + nodelist[colcount];
-                weights[i][colcount+1] = nodelist[i] + nodelist[colcount + 1];
+                weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
+                weights[i][i + colcount+1] = nodelist[i] + nodelist[i + colcount + 1];
             }
             else if (i % colcount == colcount - 1) {
-                weights[i][colcount + 1] = nodelist[i] + nodelist[colcount + 1];
-                weights[i][colcount + 2] = nodelist[i] + nodelist[colcount - 1];
+                weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
+                weights[i][i + colcount - 1] = nodelist[i] + nodelist[i + colcount - 1];
             }
             else {
-                weights[i][colcount] = nodelist[i] + nodelist[colcount];
-                weights[i][colcount + 1] = nodelist[i] + nodelist[colcount + 1];
-                weights[i][colcount + 2] = nodelist[i] + nodelist[colcount + 2];        
+                weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
+                weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
+                weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];        
             }
         }
         System.out.println("Weight matrix:");
