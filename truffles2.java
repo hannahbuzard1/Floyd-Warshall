@@ -18,6 +18,7 @@ public class truffles2 {
         for (i = 0; i < nodes; i++) {
             for (j = 0; j < nodes; j++) {
                 dist[i][j] = matrix[i][j]; 
+                pred[i][j] = 0;
             }
         }
                 
@@ -52,7 +53,7 @@ public class truffles2 {
         for(int i=0; i<nodes; i++) {
             for (int j = 0; j< nodes; j++) {
                 Collections.copy(currentpath, getPath(pred,i,j));
-                max = 0;
+                int max = 0;
                 for (int i = 0; i < currentpath.size(); i++) {
                     max = max + currentpath.get(i);
                 }
@@ -69,7 +70,7 @@ public class truffles2 {
     
     public static ArrayList<Integer> getPath (int[][] pred, int u, int v) {
         ArrayList<Integer> predpath = new ArrayList<Integer>();
-        if (pred[u][v] == null) {
+        if (pred[u][v] == 0) {
             return predpath;    
         }
         path.add(u);
