@@ -50,7 +50,7 @@ public class truffles2 {
         }
         System.out.println("Getting paths... may take a while");
         for(int i=0; i<nodes; i++) {
-            for int j = 0; j< nodes; j++) {
+            for (int j = 0; j< nodes; j++) {
                 Collections.copy(currentpath, getPath(i,j));
                 max = 0;
                 for (int i = 0; i < currentpath.size(); i++) {
@@ -74,10 +74,10 @@ public class truffles2 {
         }
         path.add(u);
         while (u != v) {
-            u = pred[u][v]
+            u = pred[u][v];
             predpath.add(u);
         }
-        return predpath
+        return predpath;
     }
     public static void main(String args[]) { 
         //get row and column sizes from file
