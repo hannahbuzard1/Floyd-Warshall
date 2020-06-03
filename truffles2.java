@@ -99,13 +99,10 @@ public class truffles2 {
         }
         for(int i=0; i<nodes; i++) {
             for(int j =0; j<nodes;j++) {
-                System.out.println(j);
                 if(i == j) {
-                    System.out.println("Line 103");
                     weights[i][i] = 0;
                 }
                 else if(j < i) {
-                    System.out.println("line 107");
                     weights[i][j] = INF;    
                 }
                 else if (j < i + rowcount) {
@@ -116,23 +113,18 @@ public class truffles2 {
                         weights[i][j] = nodelist[j];
                     }
                     else if(i % colcount == 0 && j == i+colcount) {
-                        System.out.println("line 116"); 
                         weights[i][j] = nodelist[i] + nodelist[j];
                     }
                     else if (i % colcount == 0 && j == i+colcount+1) {
-                        System.out.println("line 120");
                         weights[i][j] = nodelist[i] + nodelist[j];  
                     }
                     else if (i % colcount == colcount - 1 && j == i + colcount) {
-                        System.out.println("line 124");
                         weights[i][j] = nodelist[i] + nodelist[j];
                     }
                     else if (i % colcount == colcount - 1 && j == i + colcount - 1) {
-                        System.out.println("line 128");
                         weights[i][j] = nodelist[i] + nodelist[j];
                     }
                     else if (i % colcount != 0 && i % colcount != colcount - 1) {
-                        System.out.println("line 132");
                         weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
                         weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
                         weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];        
@@ -154,6 +146,6 @@ public class truffles2 {
         }
         System.out.println("");
         //call Floyd Warshall with weight matrix
-        //FloydWarshall(weights, nodes);
+        FloydWarshall(weights, nodes);
     }
 }
