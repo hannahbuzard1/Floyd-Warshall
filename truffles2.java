@@ -170,6 +170,6 @@ public static void floydWarshall(int graph[][], int V)
             globalnodes.add(nodelist[i]);
         }
         //call Floyd Warshall with weight matrix
-        floydWarshall(graph, 9);
+        floydWarshall(weights, 9);
     }
 }
