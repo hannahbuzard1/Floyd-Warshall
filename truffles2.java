@@ -32,7 +32,14 @@ public static void floydWarshall(int graph[][], int V)
                 pred[i][j] = i;
             }
         }
-  
+        System.out.println("Pred matrix:");
+        for (i = 0; i < V; i++) {
+            for (j = 0; j < V; j++) {
+                System.out.print(pred[i][j]); 
+                System.out.print(" "); 
+            }
+            System.out.println("");
+        }
         for (k = 0; k < V; k++) 
         { 
             // Pick all vertices as source one by one 
@@ -71,7 +78,7 @@ public static void floydWarshall(int graph[][], int V)
             System.out.println("");
         }
         int max = 0;
-        getPath(pred,0,8);
+        getPath(pred,0,4);
         for (i = 0; i < currentpath.size(); i++) {
              max = max + currentpath.get(i);
         }
