@@ -16,6 +16,7 @@ public class truffles2 {
 void floydWarshall(int graph[][], int V) 
     { 
         int dist[][] = new int[V][V]; 
+        int pred[][] = new int[V][V];
         int i, j, k; 
   
         /* Initialize the solution matrix same as input graph matrix. 
@@ -25,6 +26,7 @@ void floydWarshall(int graph[][], int V)
         for (i = 0; i < V; i++) 
             for (j = 0; j < V; j++) 
                 dist[i][j] = graph[i][j]; 
+                pred[i][j] = i;
   
         for (k = 0; k < V; k++) 
         { 
@@ -39,12 +41,13 @@ void floydWarshall(int graph[][], int V)
                     // i to j, then update the value of dist[i][j] 
                     if (dist[i][k] + dist[k][j] < dist[i][j]) 
                         dist[i][j] = dist[i][k] + dist[k][j]; 
+                        pred[i][j] = pred[k][j];
                 } 
             } 
         } 
         System.out.println("Dist matrix:");
-        for (i = 0; i < nodes; i++) {
-            for (j = 0; j < nodes; j++) {
+        for (i = 0; i < V; i++) {
+            for (j = 0; j < V; j++) {
                 if(dist[i][j] == INF) {
                     System.out.print("INF");
                 } else {
@@ -165,6 +168,6 @@ void floydWarshall(int graph[][], int V)
                           {INF, INF, INF, 0} 
                         };
         //call Floyd Warshall with weight matrix
-        FloydWarshall(graph, 4);
+        floydWarshall(graph, 4);
     }
 }
