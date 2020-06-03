@@ -11,6 +11,7 @@ public class truffles2 {
     public static int INF = 99999;
     public static ArrayList<Integer> path = new ArrayList<Integer>();
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
+     public static ArrayList<Integer> globalnodes = new ArrayList<Integer>();
     public static int maxpath;
     public static void FloydWarshall(int[][] matrix, int nodes) {
        int dist[][] = new int[nodes][nodes]; 
@@ -59,12 +60,12 @@ public class truffles2 {
   public static void getPath(int[][] predecessor, int i, int j) {
     //base case
     if(i == j) {
-      currentpath.add(nodelist[i]);
+      currentpath.add(globalnodes.get(i));
     } else {
       //recursive call
       getPath(predecessor, i, predecessor[i][j]);
       //add index to global index array
-      currentpath.add(nodelist[j]);
+      currentpath.add(globalnodes.get(j));
     }
   }
     public static void main(String args[]) { 
@@ -149,6 +150,8 @@ public class truffles2 {
                 }
             }
         }
+        List<Integer> al = new ArrayList<Integer>(Arrays.asList(nodelist));
+        Collections.copy(globalnodes, al);
         //call Floyd Warshall with weight matrix
         FloydWarshall(weights, nodes);
     }
