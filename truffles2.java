@@ -68,7 +68,7 @@ public static void floydWarshall(int graph[][], int V)
         System.out.println("Pred matrix:");
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {
-                if(pred[i][j] == null) {
+                if(pred[i][j] == -1) {
                     System.out.print("NULL");
                 } else {
                     System.out.print(pred[i][j]); 
