@@ -99,26 +99,33 @@ public class truffles2 {
         }
         for(int i=0; i<nodes; i++) {
             for(int j =0; j<nodes;j++) {
-                weights[i][i] = 0;
-                if(j < nodes - rowcount) {
+                if(i == j) {
+                    weights[i][i] = 0;
+                }
+                else if(j < i) {
                     weights[i][j] = INF;    
                 }
-                else if(i % colcount == 0 && j == i+colcount) {
-                    weights[i][j] = nodelist[i] + nodelist[j];
+                else if (j < nodes - rowcount) {
+                    weights[i][j] = nodelist[j];
                 }
-                else if (i % colcount == 0 && j == i+colcount+1) {
-                    weights[i][j] = nodelist[i] + nodelist[j];  
-                }
-                else if (i % colcount == colcount - 1 && j == i + colcount) {
-                    weights[i][j] = nodelist[i] + nodelist[j];
-                }
-                else if (i % colcount == colcount - 1 && j == i + colcount - 1) {
-                    weights[i][j] = nodelist[i] + nodelist[j];
-                }
-                else if (i <=4) {
-                    weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
-                    weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
-                    weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];        
+                else if (nodes - i > rownum) {
+                    if(i % colcount == 0 && j == i+colcount) {
+                        weights[i][j] = nodelist[i] + nodelist[j];
+                    }
+                    else if (i % colcount == 0 && j == i+colcount+1) {
+                        weights[i][j] = nodelist[i] + nodelist[j];  
+                    }
+                    else if (i % colcount == colcount - 1 && j == i + colcount) {
+                        weights[i][j] = nodelist[i] + nodelist[j];
+                    }
+                    else if (i % colcount == colcount - 1 && j == i + colcount - 1) {
+                        weights[i][j] = nodelist[i] + nodelist[j];
+                    }
+                    else if (i <=4) {
+                        weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
+                        weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
+                        weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];        
+                    }
                 }
             }
         }
