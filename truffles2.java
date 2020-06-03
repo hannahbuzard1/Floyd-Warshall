@@ -98,19 +98,28 @@ public class truffles2 {
             }
         }
         for(int i=0; i<nodes; i++) {
-            weights[i][i] = 0;
-            if(i % colcount == 0) {
-                weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
-                weights[i][i + colcount+1] = nodelist[i] + nodelist[i + colcount + 1];
-            }
-            else if (i % colcount == colcount - 1) {
-                weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
-                weights[i][i + colcount - 1] = nodelist[i] + nodelist[i + colcount - 1];
-            }
-            else {
-                weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
-                weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
-                weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];        
+            for(int j =0; j<nodes;j++) {
+                weights[i][i] = 0;
+                if(j < nodes - rowcount) {
+                    weights[i][j] = nodelist[j];    
+                }
+                else if(i % colcount == 0 && j == i+colcount) {
+                    weights[i][j] = nodelist[i] + nodelist[j];
+                }
+                else if (i % colcount == 0 && j == i+colcount+1) {
+                    weights[i][j] = nodelist[i] + nodelist[j];  
+                }
+                else if (i % colcount == colcount - 1 && j == i + colcount) {
+                    weights[i][j] = nodelist[i] + nodelist[j];
+                }
+                else if (i % colcount == colcount - 1 && j == i + colcount - 1) {
+                    weights[i][j] = nodelist[i] + nodelist[j];
+                }
+                else {
+                    weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
+                    weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
+                    weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];        
+                }
             }
         }
         System.out.println("Weight matrix:");
@@ -127,6 +136,6 @@ public class truffles2 {
         }
         System.out.println("");
         //call Floyd Warshall with weight matrix
-        FloydWarshall(weights, nodes);
+        //FloydWarshall(weights, nodes);
     }
 }
