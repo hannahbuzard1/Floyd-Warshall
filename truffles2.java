@@ -80,8 +80,6 @@ public static void floydWarshall(int graph[][], int V) {
       System.out.println(globalnodes.get(j));
     }
   }
-
-  }
     public static void main(String args[]) { 
         //get row and column sizes from file
         int colcount = 3;
