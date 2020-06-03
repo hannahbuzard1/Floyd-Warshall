@@ -20,25 +20,12 @@ public static void floydWarshall(int graph[][], int V)
         int i = 0;
         int j = 0;
         int k = 0;
-        
-  
-        /* Initialize the solution matrix same as input graph matrix. 
-           Or we can say the initial values of shortest distances 
-           are based on shortest paths considering no intermediate 
-           vertex. */
+
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {
                 dist[i][j] = graph[i][j]; 
                 pred[i][j] = i;
             }
-        }
-        System.out.println("Pred matrix:");
-        for (i = 0; i < V; i++) {
-            for (j = 0; j < V; j++) {
-                System.out.print(pred[i][j]); 
-                System.out.print(" "); 
-            }
-            System.out.println("");
         }
         for (k = 0; k < V; k++) 
         { 
@@ -78,7 +65,7 @@ public static void floydWarshall(int graph[][], int V)
             System.out.println("");
         }
         int max = 0;
-        getPath(pred,0,4);
+        getPath(pred,0,8);
         for (i = 0; i < currentpath.size(); i++) {
              max = max + currentpath.get(i);
         }
@@ -182,12 +169,7 @@ public static void floydWarshall(int graph[][], int V)
         for (int i=0; i< nodelist.length; i++) {
             globalnodes.add(nodelist[i]);
         }
-          int graph[][] = { {0,   5,  INF, 10}, 
-                          {INF, 0,   3, INF}, 
-                          {INF, INF, 0,   1}, 
-                          {INF, INF, INF, 0} 
-                        };
         //call Floyd Warshall with weight matrix
-        floydWarshall(graph, 4);
+        floydWarshall(graph, 9);
     }
 }
