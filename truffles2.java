@@ -19,8 +19,8 @@ public static void floydWarshall(int graph[][], int V) {
         int j = 0;
         int k = 0;
         int[][] p = new int[graph.length][graph.length];
-        for (int i = 0; i < graph.length; i++) {
-            for (int j = 0; j < graph.length; j++) {
+        for (i = 0; i < graph.length; i++) {
+            for (j = 0; j < graph.length; j++) {
                 if (graph[i][j] != 0 && graph[i][j] != INF) {
                     p[i][j] = i;
                 } else {
