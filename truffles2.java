@@ -26,10 +26,12 @@ public static void floydWarshall(int graph[][], int V)
            Or we can say the initial values of shortest distances 
            are based on shortest paths considering no intermediate 
            vertex. */
-        for (i = 0; i < V; i++) 
-            for (j = 0; j < V; j++) 
+        for (i = 0; i < V; i++) {
+            for (j = 0; j < V; j++) {
                 dist[i][j] = graph[i][j]; 
                 pred[i][j] = i;
+            }
+        }
   
         for (k = 0; k < V; k++) 
         { 
