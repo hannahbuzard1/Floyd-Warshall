@@ -47,23 +47,6 @@ public class truffles2 {
             }
             System.out.println("");
         }
-        System.out.println("Getting paths... may take a while");
-        int max = 0;
-        for(i=0; i<colnumber; i++) {
-            for (j = nodes - colnumber; j< nodes; j++) {
-                Collections.copy(currentpath, getPath(pred,i,j));
-                max = 0;
-                for (i = 0; i < currentpath.size(); i++) {
-                    max = max + currentpath.get(i);
-                }
-                if(max < maxpath) {
-                    maxpath = max;
-                    Collections.copy(path, currentpath);
-                }
-            }
-            System.out.println("Max val:");
-            System.out.println(max);
-        }
         System.out.println("Maximum truffles is: " + max);
         System.out.println(Arrays.toString(path.toArray()));
     }
