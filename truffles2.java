@@ -32,7 +32,7 @@ public class truffles2 {
                 for (j = 0; j < nodes; j++) { 
                     // If vertex k is on the shortest path from 
                     // i to j, then update the value of dist[i][j] 
-                    if (dist[i][k] + dist[k][j] < dist[i][j]) {
+                    if (dist[i][k] + dist[k][j] > dist[i][j]) {
                         dist[i][j] = dist[i][k] + dist[k][j]; 
                         pred[i][j] = pred[i][k];
                     }
