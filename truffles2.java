@@ -97,7 +97,7 @@ public class truffles2 {
                 weights[i][j] = INF;
             }
         }
-        for(int i=0; i<1; i++) {
+        for(int i=0; i<nodes; i++) {
             for(int j =0; j<nodes;j++) {
                 System.out.println(j);
                 if(i == j) {
