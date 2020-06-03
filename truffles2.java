@@ -110,7 +110,6 @@ public static void floydWarshall(int graph[][], int V) {
         }
         for(int i=2; i<nodes; i++) {
             for(int j =0; j<nodes;j++) {
-                System.out.println(j);
                 if(i == j) {
                     weights[i][i] = 0;
                 }
