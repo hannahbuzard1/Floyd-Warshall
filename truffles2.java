@@ -150,8 +150,7 @@ public class truffles2 {
                 }
             }
         }
-        ArrayList<Integer> al = new ArrayList<Integer>(Arrays.asList(nodelist));
-        Collections.copy(globalnodes, al);
+        Collections.addAll(globalnodes,array)
         //call Floyd Warshall with weight matrix
         FloydWarshall(weights, nodes);
     }
