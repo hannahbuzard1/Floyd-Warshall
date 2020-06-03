@@ -21,11 +21,7 @@ public static void floydWarshall(int graph[][], int V) {
         int[][] p = new int[graph.length][graph.length];
         for (i = 0; i < graph.length; i++) {
             for (j = 0; j < graph.length; j++) {
-                if (graph[i][j] != 0 && graph[i][j] != INF) {
-                    p[i][j] = i;
-                } else {
-                    p[i][j] = -1;
-                }
+                p[i][j] = -1;
             }
         }
         for (k = 0; k < graph.length; k++) {
@@ -36,7 +32,7 @@ public static void floydWarshall(int graph[][], int V) {
                     }
                     if (graph[i][j] > graph[i][k] + graph[k][j]) {
                         graph[i][j] = graph[i][k] + graph[k][j];
-                        p[i][j] = p[k][j];
+                        p[i][j] = k;
                     }
                 }
             }
@@ -76,13 +72,13 @@ public static void floydWarshall(int graph[][], int V) {
     
   public static void getPath(int[][] predecessor, int i, int j) {
     //base case
-    if(i == j) {
-      currentpath.add(globalnodes.get(i));
+    if(predecessor[i][j] == -1) {
+      System.out.println(d[i][j]);
     } else {
       //recursive call
       getPath(predecessor, i, predecessor[i][j]);
       //add index to global index array
-      currentpath.add(globalnodes.get(j));
+      getPath(predecessor, predecessor[i][j], j);
     }
   }
     public static void main(String args[]) { 
