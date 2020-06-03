@@ -43,7 +43,11 @@ public class truffles2 {
         System.out.println("Pred matrix:");
         for (i = 0; i < nodes; i++) {
             for (j = 0; j < nodes; j++) {
-                System.out.print(pred[i][j]); 
+                if(dist[i][j] == INF) {
+                    System.out.print("INF");
+                } else {
+                    System.out.print(dist[i][j]); 
+                }
                 System.out.print(" "); 
             }
             System.out.println("");
@@ -153,7 +157,12 @@ public class truffles2 {
         for (int i=0; i< nodelist.length; i++) {
             globalnodes.add(nodelist[i]);
         }
+          int graph[][] = { {0,   5,  INF, 10}, 
+                          {INF, 0,   3, INF}, 
+                          {INF, INF, 0,   1}, 
+                          {INF, INF, INF, 0} 
+                        };
         //call Floyd Warshall with weight matrix
-        FloydWarshall(weights, nodes);
+        FloydWarshall(graph, 4);
     }
 }
