@@ -150,7 +150,7 @@ public class truffles2 {
                 }
             }
         }
-        Collections.addAll(globalnodes,nodelist);
+        globalnodes.addAll(nodelist);
         //call Floyd Warshall with weight matrix
         FloydWarshall(weights, nodes);
     }
