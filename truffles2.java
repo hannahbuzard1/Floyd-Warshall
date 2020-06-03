@@ -39,15 +39,11 @@ public class truffles2 {
                 } 
             } 
         }
-        System.out.println("New matrix:");
+        System.out.println("Pred matrix:");
         for (i = 0; i < nodes; i++) {
             for (j = 0; j < nodes; j++) {
-                if(dist[i][j] == INF) {
-                    System.out.print("INF");
-                } else {
-                    System.out.print(dist[i][j]); 
-                }
-                System.out.print(" ");
+                System.out.print(pred[i][j]); 
+                System.out.print(" "); 
             }
             System.out.println("");
         }
@@ -65,6 +61,8 @@ public class truffles2 {
                     Collections.copy(path, currentpath);
                 }
             }
+            System.out.println("Max val:");
+            System.out.println(max);
         }
         System.out.println("Maximum truffles is: " + max);
         System.out.println(Arrays.toString(path.toArray()));
