@@ -28,10 +28,10 @@ public static void floydWarshall(int graph[][], int V)
         }
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {
-                if(i==j || weights[i][j] == INF) {
-                    pred[i][j] = null;
+                if(i==j || graph[i][j] == INF) {
+                    pred[i][j] = -1;
                 }
-                if(i != j && weights[i][j] < INF) {
+                if(i != j && graph[i][j] < INF) {
                     pred[i][j] = i;
                 }
             }
