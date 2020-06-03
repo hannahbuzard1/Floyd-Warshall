@@ -64,6 +64,7 @@ public class truffles2 {
                     maxpath = max;
                     Collections.copy(path, currentpath);
                 }
+                System.out.println(max);
                 currentpath.clear();
             }
         }
