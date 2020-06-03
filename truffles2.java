@@ -150,7 +150,9 @@ public class truffles2 {
                 }
             }
         }
-        globalnodes.addAll(nodelist);
+        for (i=0; i< nodelist.length; i++) {
+            globalnodes.add(nodelist[i]);
+        }
         //call Floyd Warshall with weight matrix
         FloydWarshall(weights, nodes);
     }
