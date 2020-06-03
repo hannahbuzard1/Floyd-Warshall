@@ -163,6 +163,13 @@ public static void floydWarshall(int graph[][], int V) {
         for (int i=0; i< nodelist.length; i++) {
             globalnodes.add(nodelist[i]);
         }
+        for(int i=0; i<nodes; i++) {
+            for (int j=0; j<nodes; j++) {
+                if(weights[i][j] != INF) {
+                    weights[i][j] = -(weights[i][j]);
+                }
+            }
+        }
         //call Floyd Warshall with weight matrix
         floydWarshall(weights, 9);
     }
