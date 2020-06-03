@@ -47,6 +47,12 @@ public class truffles2 {
             }
             System.out.println("");
         }
+        int max = 0;
+        Collections.copy(currentpath, getPath(pred,0,8));
+        for (i = 0; i < currentpath.size(); i++) {
+             max = max + currentpath.get(i);
+        }
+        Collections.copy(path, currentpath);
         System.out.println("Maximum truffles is: " + max);
         System.out.println(Arrays.toString(path.toArray()));
     }
