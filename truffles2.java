@@ -62,6 +62,14 @@ public static void floydWarshall(int graph[][], int V)
             }
             System.out.println("");
         }
+        System.out.println("Pred matrix:");
+        for (i = 0; i < V; i++) {
+            for (j = 0; j < V; j++) {
+                System.out.print(pred[i][j]); 
+                System.out.print(" "); 
+            }
+            System.out.println("");
+        }
         int max = 0;
         getPath(pred,0,8);
         for (i = 0; i < currentpath.size(); i++) {
