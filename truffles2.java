@@ -7,7 +7,7 @@ import java.lang.*;
 import java.util.Collections;
 
 public class truffles2 {
-    public int colnumber;
+    public static int colnumber;
     public static int INF = 99999;
     public static ArrayList<Integer> path = new ArrayList<Integer>();
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
@@ -144,7 +144,7 @@ public class truffles2 {
             System.out.println("");
         }
         System.out.println("");
-        for(int i=0; i<colnum; i++) {
+        for(int i=0; i<colnumber; i++) {
             for (int j=nodes - colnumber; j<nodes; j++) {
                 if(weights[i][j] != INF) {
                 weights[i][j] = -(weights[i][j]);
