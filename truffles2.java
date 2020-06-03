@@ -132,7 +132,7 @@ public class truffles2 {
                         System.out.println("line 128");
                         weights[i][j] = nodelist[i] + nodelist[j];
                     }
-                    else if (i <=4) {
+                    else if (i % colcount != 0 && i % colcount != colcount - 1) {
                         System.out.println("line 132");
                         weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
                         weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
