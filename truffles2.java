@@ -21,7 +21,7 @@ public static void floydWarshall(int graph[][], int V) {
         int[][] p = new int[graph.length][graph.length];
         for (i = 0; i < graph.length; i++) {
             for (j = 0; j < graph.length; j++) {
-                p[i][j] = j + 1;
+                p[i][j] = -1;
             }
         }
         for (k = 0; k < graph.length; k++) {
