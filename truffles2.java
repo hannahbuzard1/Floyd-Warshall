@@ -13,7 +13,7 @@ public class truffles2 {
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
      public static ArrayList<Integer> globalnodes = new ArrayList<Integer>();
     public static int maxpath;
-void floydWarshall(int graph[][], int V) 
+public static void floydWarshall(int graph[][], int V) 
     { 
         int dist[][] = new int[V][V]; 
         int pred[][] = new int[V][V];
