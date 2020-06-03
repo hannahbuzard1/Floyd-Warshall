@@ -99,6 +99,7 @@ public class truffles2 {
         }
         for(int i=0; i<1; i++) {
             for(int j =0; j<nodes;j++) {
+                System.out.println(j);
                 if(i == j) {
                     System.out.println("Line 103");
                     weights[i][i] = 0;
