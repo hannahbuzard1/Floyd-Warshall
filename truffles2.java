@@ -28,9 +28,9 @@ public static void floydWarshall(int graph[][], int V) {
                 }
             }
         }
-        for (int k = 0; k < graph.length; k++) {
-            for (int i = 0; i < d.length; i++) {
-                for (int j = 0; j < graph.length; j++) {
+        for (k = 0; k < graph.length; k++) {
+            for (i = 0; i < graph.length; i++) {
+                for (j = 0; j < graph.length; j++) {
                     if (graph[i][k] == INF || graph[k][j] == INF) {
                         continue;                 
                     }
@@ -44,7 +44,7 @@ public static void floydWarshall(int graph[][], int V) {
         System.out.println("Dist matrix:");
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {
-                if(dist[i][j] == INF) {
+                if(graph[i][j] == INF) {
                     System.out.print("INF");
                 } else {
                     System.out.print(graph[i][j]); 
