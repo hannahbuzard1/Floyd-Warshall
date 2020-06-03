@@ -66,7 +66,7 @@ public static void floydWarshall(int graph[][], int V) {
             System.out.println("");
         }
         int max = 0;
-        getPath(p,0,8);
+        getPath(p,0,7);
         for (i = 0; i < currentpath.size(); i++) {
              max = max + currentpath.get(i);
         }
