@@ -53,8 +53,8 @@ public class truffles2 {
         }
         System.out.println("Getting paths... may take a while");
         int max = 0;
-        for(i=0; i<nodes; i++) {
-            for (j = 0; j< nodes; j++) {
+        for(i=0; i<colnumber; i++) {
+            for (j = nodes - colnumber; j< nodes; j++) {
                 Collections.copy(currentpath, getPath(pred,i,j));
                 max = 0;
                 for (i = 0; i < currentpath.size(); i++) {
@@ -106,7 +106,6 @@ public class truffles2 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //make call to function to find max path 
         int[][] weights = new int [nodes][nodes];
         for(int i=0; i<nodes; i++) {
             for (int j=0; j<nodes; j++) {
@@ -145,8 +144,8 @@ public class truffles2 {
             System.out.println("");
         }
         System.out.println("");
-        for(int i=0; i<colnumber; i++) {
-            for (int j=nodes - colnumber; j<nodes; j++) {
+        for(int i=0; i<nodes; i++) {
+            for (int j=0; j<nodes; j++) {
                 if(weights[i][j] != INF) {
                 weights[i][j] = -(weights[i][j]);
                 }
