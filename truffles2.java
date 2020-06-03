@@ -21,7 +21,7 @@ public static void floydWarshall(int graph[][], int V) {
         int[][] p = new int[graph.length][graph.length];
         for (i = 0; i < graph.length; i++) {
             for (j = 0; j < graph.length; j++) {
-                p[i][j] = -1;
+                p[i][j] = j + 1;
             }
         }
         for (k = 0; k < graph.length; k++) {
@@ -30,9 +30,9 @@ public static void floydWarshall(int graph[][], int V) {
                     if (graph[i][k] == INF || graph[k][j] == INF) {
                         continue;                 
                     }
-                    if (graph[i][j] < graph[i][k] + graph[k][j]) {
+                    if (graph[i][j] > graph[i][k] + graph[k][j]) {
                         graph[i][j] = graph[i][k] + graph[k][j];
-                        p[i][j] = k;
+                        p[i][j] = p[i][k];
                     }
                 }
             }
@@ -62,7 +62,7 @@ public static void floydWarshall(int graph[][], int V) {
             System.out.println("");
         }
         int max = 0;
-        getPath(p,0,6);
+        getPath(p,0,8);
         for (i = 0; i < currentpath.size(); i++) {
              max = max + currentpath.get(i);
         }
@@ -72,14 +72,15 @@ public static void floydWarshall(int graph[][], int V) {
     
   public static void getPath(int[][] predecessor, int i, int j) {
     //base case
-    if(predecessor[i][j] == -1) {
-      System.out.println(globalnodes.get(i));
+     if(i == j) {
+      System.out.println(globalnodes.get(i) + " ");
     } else {
       //recursive call
       getPath(predecessor, i, predecessor[i][j]);
-      //add index to global index array
-      getPath(predecessor, predecessor[i][j], j);
+      System.out.println(globalnodes.get(j));
     }
+  }
+
   }
     public static void main(String args[]) { 
         //get row and column sizes from file
