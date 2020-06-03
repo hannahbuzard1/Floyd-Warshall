@@ -13,34 +13,36 @@ public class truffles2 {
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
      public static ArrayList<Integer> globalnodes = new ArrayList<Integer>();
     public static int maxpath;
-    public static void FloydWarshall(int[][] matrix, int nodes) {
-       int dist[][] = new int[nodes][nodes]; 
-       int pred[][] = new int [nodes][nodes];
+void floydWarshall(int graph[][], int V) 
+    { 
+        int dist[][] = new int[V][V]; 
         int i, j, k; 
-
-        for (i = 0; i < nodes; i++) {
-            for (j = 0; j < nodes; j++) {
-                dist[i][j] = matrix[i][j]; 
-                pred[i][j] = i;
-            }
-        }
-                
-        for (k = 0; k < nodes; k++) { 
+  
+        /* Initialize the solution matrix same as input graph matrix. 
+           Or we can say the initial values of shortest distances 
+           are based on shortest paths considering no intermediate 
+           vertex. */
+        for (i = 0; i < V; i++) 
+            for (j = 0; j < V; j++) 
+                dist[i][j] = graph[i][j]; 
+  
+        for (k = 0; k < V; k++) 
+        { 
             // Pick all vertices as source one by one 
-            for (i = 0; i < nodes; i++)  { 
+            for (i = 0; i < V; i++) 
+            { 
                 // Pick all vertices as destination for the 
                 // above picked source 
-                for (j = 0; j < nodes; j++) { 
+                for (j = 0; j < V; j++) 
+                { 
                     // If vertex k is on the shortest path from 
                     // i to j, then update the value of dist[i][j] 
-                    if (dist[i][k] + dist[k][j] < dist[i][j]) {
+                    if (dist[i][k] + dist[k][j] < dist[i][j]) 
                         dist[i][j] = dist[i][k] + dist[k][j]; 
-                        pred[i][j] = pred[i][k];
-                    }
                 } 
             } 
-        }
-        System.out.println("Pred matrix:");
+        } 
+        System.out.println("Dist matrix:");
         for (i = 0; i < nodes; i++) {
             for (j = 0; j < nodes; j++) {
                 if(dist[i][j] == INF) {
