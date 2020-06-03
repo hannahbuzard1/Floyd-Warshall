@@ -102,13 +102,13 @@ public class truffles2 {
                 if(i == j) {
                     weights[i][i] = 0;
                 }
-                else if(j < i) {
+                if(j < i) {
                     weights[i][j] = INF;    
                 }
-                else if (j < nodes - rowcount) {
+                if (j < nodes - rowcount) {
                     weights[i][j] = nodelist[j];
                 }
-                else if (nodes - i > rowcount) {
+                if (nodes - i > rowcount) {
                     if(i % colcount == 0 && j == i+colcount) {
                         weights[i][j] = nodelist[i] + nodelist[j];
                     }
