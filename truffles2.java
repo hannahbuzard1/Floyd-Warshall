@@ -17,7 +17,10 @@ public static void floydWarshall(int graph[][], int V)
     { 
         int dist[][] = new int[V][V]; 
         int pred[][] = new int[V][V];
-        int i, j, k; 
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        
   
         /* Initialize the solution matrix same as input graph matrix. 
            Or we can say the initial values of shortest distances 
