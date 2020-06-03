@@ -115,7 +115,7 @@ public class truffles2 {
                 else if (i % colcount == colcount - 1 && j == i + colcount - 1) {
                     weights[i][j] = nodelist[i] + nodelist[j];
                 }
-                else {
+                else if (i <=4) {
                     weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
                     weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
                     weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];        
