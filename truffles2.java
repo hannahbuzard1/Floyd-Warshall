@@ -97,31 +97,39 @@ public class truffles2 {
                 weights[i][j] = INF;
             }
         }
-        for(int i=0; i<nodes; i++) {
+        for(int i=0; i<1; i++) {
             for(int j =0; j<nodes;j++) {
                 if(i == j) {
+                    System.out.println("Line 103");
                     weights[i][i] = 0;
                 }
                 else if(j < i) {
+                    System.out.println("line 107");
                     weights[i][j] = INF;    
                 }
                 else if (j < nodes - rowcount) {
+                    System.out.println("line 111");
                     weights[i][j] = nodelist[j];
                 }
                 else if (nodes - i > rowcount) {
                     if(i % colcount == 0 && j == i+colcount) {
+                        System.out.println("line 116"); 
                         weights[i][j] = nodelist[i] + nodelist[j];
                     }
                     else if (i % colcount == 0 && j == i+colcount+1) {
+                        System.out.println("line 120");
                         weights[i][j] = nodelist[i] + nodelist[j];  
                     }
                     else if (i % colcount == colcount - 1 && j == i + colcount) {
+                        System.out.println("line 124");
                         weights[i][j] = nodelist[i] + nodelist[j];
                     }
                     else if (i % colcount == colcount - 1 && j == i + colcount - 1) {
+                        System.out.println("line 128");
                         weights[i][j] = nodelist[i] + nodelist[j];
                     }
                     else if (i <=4) {
+                        System.out.println("line 132");
                         weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
                         weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
                         weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];        
