@@ -107,7 +107,7 @@ public class truffles2 {
                     System.out.println("line 107");
                     weights[i][j] = INF;    
                 }
-                else if (j < nodes - rowcount) {
+                else if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
                     System.out.println("line 111");
                     weights[i][j] = nodelist[j];
                 }
