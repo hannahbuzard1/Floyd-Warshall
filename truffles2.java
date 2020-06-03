@@ -109,8 +109,8 @@ public static void floydWarshall(int graph[][], int V) {
             }
         }
         for(int i=2; i<nodes; i++) {
-            print(j);
             for(int j =0; j<nodes;j++) {
+                print(j);
                 if(i == j) {
                     weights[i][i] = 0;
                 }
