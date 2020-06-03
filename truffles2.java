@@ -157,6 +157,6 @@ public class truffles2 {
                           {INF, INF, INF, 0} 
                         }; 
         //call Floyd Warshall with weight matrix
-        FloydWarshall(graphs, 4);
+        FloydWarshall(graph, 4);
     }
 }
