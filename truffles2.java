@@ -24,7 +24,16 @@ public static void floydWarshall(int graph[][], int V)
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {
                 dist[i][j] = graph[i][j]; 
-                pred[i][j] = i;
+            }
+        }
+        for (i = 0; i < V; i++) {
+            for (j = 0; j < V; j++) {
+                if(i==j || weights[i][j] == INF) {
+                    pred[i][j] = null;
+                }
+                if(i != j && weights[i][j] < INF) {
+                    pred[i][j] = i;
+                }
             }
         }
         for (k = 0; k < V; k++) 
@@ -59,7 +68,11 @@ public static void floydWarshall(int graph[][], int V)
         System.out.println("Pred matrix:");
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {
-                System.out.print(pred[i][j]); 
+                if(pred[i][j] == null) {
+                    System.out.print("NULL");
+                } else {
+                    System.out.print(pred[i][j]); 
+                }
                 System.out.print(" "); 
             }
             System.out.println("");
