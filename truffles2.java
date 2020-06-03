@@ -28,10 +28,10 @@ public static void floydWarshall(int graph[][], int V) {
                 }
             }
         }
-        for (int k = 0; k < d.length; k++) {
+        for (int k = 0; k < graph.length; k++) {
             for (int i = 0; i < d.length; i++) {
-                for (int j = 0; j < d.length; j++) {
-                    if (d[i][k] == INF || d[k][j] == INF) {
+                for (int j = 0; j < graph.length; j++) {
+                    if (graph[i][k] == INF || graph[k][j] == INF) {
                         continue;                 
                     }
                     if (graph[i][j] > graph[i][k] + graph[k][j]) {
