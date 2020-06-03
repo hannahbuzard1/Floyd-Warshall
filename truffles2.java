@@ -73,7 +73,7 @@ public static void floydWarshall(int graph[][], int V) {
   public static void getPath(int[][] predecessor, int i, int j) {
     //base case
     if(predecessor[i][j] == -1) {
-      System.out.println(d[i][j]);
+      System.out.println(globalnodes.get(i));
     } else {
       //recursive call
       getPath(predecessor, i, predecessor[i][j]);
