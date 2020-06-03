@@ -48,27 +48,25 @@ public class truffles2 {
             System.out.println("");
         }
         int max = 0;
-        Collections.copy(currentpath, getPath(pred,0,8));
+        getPath(pred,0,8);
         for (i = 0; i < currentpath.size(); i++) {
              max = max + currentpath.get(i);
         }
-        Collections.copy(path, currentpath);
         System.out.println("Maximum truffles is: " + max);
-        System.out.println(Arrays.toString(path.toArray()));
+        System.out.println(Arrays.toString(currentpath.toArray()));
     }
     
-    public static ArrayList<Integer> getPath (int[][] pred, int u, int v) {
-        ArrayList<Integer> predpath = new ArrayList<Integer>();
-        if (pred[u][v] == 0) {
-            return predpath;    
-        }
-        path.add(u);
-        while (u != v) {
-            u = pred[u][v];
-            predpath.add(u);
-        }
-        return predpath;
+  public static void getPath(int[][] predecessor, int i, int j) {
+    //base case
+    if(i == j) {
+      currentpath.add(nodelist[i]);
+    } else {
+      //recursive call
+      getPath(predecessor, i, predecessor[i][j]);
+      //add index to global index array
+      currentpath.add(nodelist[j]);
     }
+  }
     public static void main(String args[]) { 
         //get row and column sizes from file
         int colcount = 3;
@@ -151,12 +149,7 @@ public class truffles2 {
                 }
             }
         }
-        int graph[][] = { {0,   5,  INF, 10}, 
-                          {INF, 0,   3, INF}, 
-                          {INF, INF, 0,   1}, 
-                          {INF, INF, INF, 0} 
-                        }; 
         //call Floyd Warshall with weight matrix
-        FloydWarshall(graph, 4);
+        FloydWarshall(weights, nodes);
     }
 }
