@@ -13,53 +13,41 @@ public class truffles2 {
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
      public static ArrayList<Integer> globalnodes = new ArrayList<Integer>();
     public static int maxpath;
-public static void floydWarshall(int graph[][], int V) 
-    { 
-        int dist[][] = new int[V][V]; 
+public static void floydWarshall(int graph[][], int V) { 
         int pred[][] = new int[V][V];
         int i = 0;
         int j = 0;
         int k = 0;
-
-        for (i = 0; i < V; i++) {
-            for (j = 0; j < V; j++) {
-                dist[i][j] = graph[i][j]; 
-            }
-        }
-        for (i = 0; i < V; i++) {
-            for (j = 0; j < V; j++) {
-                if(i==j || graph[i][j] == INF) {
-                    pred[i][j] = -1;
-                }
-                if(i != j && graph[i][j] < INF) {
-                    pred[i][j] = i;
+        int[][] p = new int[graph.length][graph.length];
+        for (int i = 0; i < graph.length; i++) {
+            for (int j = 0; j < graph.length; j++) {
+                if (graph[i][j] != 0 && graph[i][j] != INF) {
+                    p[i][j] = i;
+                } else {
+                    p[i][j] = -1;
                 }
             }
         }
-        for (k = 0; k < V; k++) 
-        { 
-            // Pick all vertices as source one by one 
-            for (i = 0; i < V; i++) 
-            { 
-                // Pick all vertices as destination for the 
-                // above picked source 
-                for (j = 0; j < V; j++) 
-                { 
-                    // If vertex k is on the shortest path from 
-                    // i to j, then update the value of dist[i][j] 
-                    if (dist[i][k] + dist[k][j] < dist[i][j]) 
-                        dist[i][j] = dist[i][k] + dist[k][j]; 
-                        pred[i][j] = pred[k][j];
-                } 
-            } 
-        } 
+        for (int k = 0; k < d.length; k++) {
+            for (int i = 0; i < d.length; i++) {
+                for (int j = 0; j < d.length; j++) {
+                    if (d[i][k] == INF || d[k][j] == INF) {
+                        continue;                 
+                    }
+                    if (graph[i][j] > graph[i][k] + graph[k][j]) {
+                        graph[i][j] = graph[i][k] + graph[k][j];
+                        p[i][j] = p[k][j];
+                    }
+                }
+            }
+         } 
         System.out.println("Dist matrix:");
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {
                 if(dist[i][j] == INF) {
                     System.out.print("INF");
                 } else {
-                    System.out.print(dist[i][j]); 
+                    System.out.print(graph[i][j]); 
                 }
                 System.out.print(" "); 
             }
@@ -71,14 +59,14 @@ public static void floydWarshall(int graph[][], int V)
                 if(pred[i][j] == -1) {
                     System.out.print("NULL");
                 } else {
-                    System.out.print(pred[i][j]); 
+                    System.out.print(p[i][j]); 
                 }
                 System.out.print(" "); 
             }
             System.out.println("");
         }
         int max = 0;
-        getPath(pred,0,8);
+        getPath(p,0,8);
         for (i = 0; i < currentpath.size(); i++) {
              max = max + currentpath.get(i);
         }
