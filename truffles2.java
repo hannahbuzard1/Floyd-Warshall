@@ -68,8 +68,8 @@ public static void floydWarshall(int graph[][], int V) {
         }
         int max = 0;
         int currentmax = 0;
-        int i = 0;
-        while (i < colnumber) {
+        int icount = 0;
+        while (icount < colnumber) {
             for(j = V - colnumber; j< V; j++) {
                 System.out.println("J val" + j);
                 currentmax = 0;
@@ -84,8 +84,8 @@ public static void floydWarshall(int graph[][], int V) {
                 }
                 currentpath.clear();
             }
-            i = i + 1;
-            System.out.println("I value:" + i);
+            icount = icount + 1;
+            System.out.println("I value:" + icount);
         }
         System.out.println("Maximum truffles is: " + max);
         System.out.println(Arrays.toString(path.toArray()));
