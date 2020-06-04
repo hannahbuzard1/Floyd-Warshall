@@ -149,7 +149,7 @@ public static void floydWarshall(int graph[][], int V) {
                 weights[i][j] = INF;
             }
         }
-        for(int i=0; i<nodes; i++) {
+        for(int i=8; i<9; i++) {
             for(int j =0; j<nodes;j++) {
                 if(i == j) {
                     System.out.println("line 155");
