@@ -151,6 +151,7 @@ public static void floydWarshall(int graph[][], int V) {
         }
         for(int i=8; i<9; i++) {
             for(int j =0; j<nodes;j++) {
+                System.out.println(j);
                 if(i == j) {
                     System.out.println("line 155");
                     weights[i][i] = 0;
