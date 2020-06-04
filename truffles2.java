@@ -106,6 +106,19 @@ public static void floydWarshall(int graph[][], int V) {
         int nodes = colcount * rowcount;
         int[] nodelist = new int[nodes];
         int count = 0;
+        Scanner input = new Scanner (new File("src/array.txt"));
+        // pre-read in the number of rows/columns
+        int rows = 0;
+        int columns = 0;
+        while(input.hasNextLine()) {
+            ++rows;
+            Scanner colReader = new Scanner(input.nextLine());
+            while(colReader.hasNextInt())
+            {
+                ++columns;
+            }
+        }
+        
         try {
             //fill in matrix using file
             Scanner input = new Scanner(new File("test.txt"));
