@@ -85,6 +85,7 @@ public static void floydWarshall(int graph[][], int V) {
                 currentpath.clear();
             }
             i = i + 1;
+            System.out.println("I value:" + i);
         }
         System.out.println("Maximum truffles is: " + max);
         System.out.println(Arrays.toString(path.toArray()));
