@@ -104,12 +104,12 @@ public static void floydWarshall(int graph[][], int V) {
         filename = "test.txt";
         int rowcount = 0;
         int colcount = 0;
+        List<String> lines = new ArrayList<String>();
+        String line = null;
+        int counter = 0;
         try {
             FileReader fileReader = new FileReader(filename);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            List<String> lines = new ArrayList<String>();
-            String line = null;
-            int counter = 0;
             while ((line = bufferedReader.readLine()) != null) {
                 if(counter == 0) {
                     lines.add(line);
@@ -127,7 +127,7 @@ public static void floydWarshall(int graph[][], int V) {
         int[] nodelist = new int[nodes];
         try {
             //fill in matrix using file
-            input = new Scanner(new File("test.txt"));
+            Scanner input = new Scanner(new File("test.txt"));
             for(int i = 0; i < rowcount; ++i) {
                 for(int j = 0; j < colcount; ++j) {
                     if(input.hasNextInt()) {
