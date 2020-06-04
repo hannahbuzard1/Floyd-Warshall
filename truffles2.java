@@ -201,14 +201,18 @@ public static void floydWarshall(int graph[][], int V) {
                         }
                     }
                     else if (i % colcount != 0 && i % colcount != colcount - 1) {
-                        System.out.println("line 209");
-                        weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
-                        weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
-                        weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];   
+                        if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
+                            System.out.println("line 206");
+                            weights[i][j] = nodelist[j];
+                        } else {
+                            weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
+                            weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
+                            weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];   
                         }
                     }
                 }
             }
+        }
         System.out.println("Weight matrix:");
         for(int i=0; i<nodes; i++) {
             for (int j=0; j<nodes; j++) {
