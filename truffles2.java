@@ -32,7 +32,7 @@ public static void floydWarshall(int graph[][], int V) {
                     }
                     if (graph[i][j] > graph[i][k] + graph[k][j]) {
                         graph[i][j] = graph[i][k] + graph[k][j];
-                        p[i][j] = p[i][k];
+                        p[i][j] = p[k][j];
                     }
                 }
             }
