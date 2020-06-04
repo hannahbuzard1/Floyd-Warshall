@@ -143,6 +143,7 @@ public static void floydWarshall(int graph[][], int V) {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(Arrays.toString(nodelist));
         int[][] weights = new int [nodes][nodes];
         for(int i=0; i<nodes; i++) {
             for (int j=0; j<nodes; j++) {
@@ -151,7 +152,6 @@ public static void floydWarshall(int graph[][], int V) {
         }
         for(int i=0; i<nodes; i++) {
             for(int j =0; j<nodes;j++) {
-                System.out.println(j);
                 if(i == j) {
                     weights[i][i] = 0;
                 }
