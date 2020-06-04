@@ -132,7 +132,7 @@ public static void floydWarshall(int graph[][], int V) {
                         System.out.println("line 133 ");
                         weights[i][j] = nodelist[i] + nodelist[j];  
                     }
-                    else if (i % colcount == colcount - 1 && (j == i + colcount || j == i + (colcount - 1))) {
+                    else if (i % colcount == colcount - 1 && j == i + colcount) {
                         System.out.println("line 137");
                         weights[i][j] = nodelist[i] + nodelist[j];
                     }
