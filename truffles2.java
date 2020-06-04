@@ -100,17 +100,27 @@ public static void floydWarshall(int graph[][], int V) {
     public static void main(String args[]) throws FileNotFoundException { 
         //get row and column sizes from file
         int count = 0;
-        Scanner input = new Scanner (new File("test.txt"));
         // pre-read in the number of rows/columns
+        filename = "test.txt";
         int rowcount = 0;
         int colcount = 0;
-        while(input.hasNextLine()) {
-            rowcount++;
-            Scanner colReader = new Scanner(input.nextLine());
-            while(colReader.hasNextInt()) {
-                colcount++;
+        try {
+            FileReader fileReader = new FileReader(filename);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            List<String> lines = new ArrayList<String>();
+            String line = null;
+            int counter = 0;
+            while ((line = bufferedReader.readLine()) != null) {
+                if(counter == 0) {
+                    lines.add(line);
+                }
+                counter++;
             }
+        } catch (IOException e) {
+            e.printStackTrace(); 
         }
+        rowcount = counter;
+        colcount = lines.size();
         colnumber = colcount;
         rownumber = rowcount;
         int nodes = colcount * rowcount;
