@@ -121,31 +121,47 @@ public static void floydWarshall(int graph[][], int V) {
                     weights[i][j] = INF;    
                 }
                 else if (nodes - i > rowcount) {
-                    if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
-                        System.out.println("line 125");
-                        weights[i][j] = nodelist[j];
-                    }
-                    else if(i % colcount == 0 && j == i+colcount) {
+                    if(i % colcount == 0 && j == i+colcount) {
                         System.out.println("line 129 ");
-                        weights[i][j] = nodelist[i] + nodelist[j];
+                        if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
+                            weights[i][j] = nodelist[j];
+                        } else {
+                            weights[i][j] = nodelist[i] + nodelist[j];
+                        }
                     }
                     else if (i % colcount == 0 && j == i+colcount+1) {
-                        System.out.println("line 133 ");
-                        weights[i][j] = nodelist[i] + nodelist[j];  
+                        if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
+                            weights[i][j] = nodelist[j];
+                        } else {
+                            System.out.println("line 133 ");
+                            weights[i][j] = nodelist[i] + nodelist[j]; 
+                        }
                     }
                     else if (i % colcount == colcount - 1 && j == i + colcount) {
-                        System.out.println("line 137");
-                        weights[i][j] = nodelist[i] + nodelist[j];
+                        if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
+                            weights[i][j] = nodelist[j];
+                        } else {
+                            System.out.println("line 137");
+                            weights[i][j] = nodelist[i] + nodelist[j];
+                        }
                     }
                     else if (i % colcount == colcount - 1 && j == i + colcount - 1) {
-                        System.out.println("line 141");
-                        weights[i][j] = nodelist[i] + nodelist[j];
+                        if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
+                            weights[i][j] = nodelist[j];
+                        } else {
+                            System.out.println("line 141");
+                            weights[i][j] = nodelist[i] + nodelist[j];
+                        }
                     }
                     else if (i % colcount != 0 && i % colcount != colcount - 1) {
-                       System.out.println("line 145"); 
-                        weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
-                        weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
-                        weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];        
+                        if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
+                            weights[i][j] = nodelist[j];
+                        } else {
+                            System.out.println("line 145"); 
+                            weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
+                            weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
+                            weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];   
+                        }
                     }
                 }
             }
