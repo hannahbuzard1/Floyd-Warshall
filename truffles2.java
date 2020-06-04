@@ -14,16 +14,21 @@ public class truffles2 {
      public static ArrayList<Integer> globalnodes = new ArrayList<Integer>();
     public static int maxpath;
 public static void floydWarshall(int graph[][], int V) { 
-        int pred[][] = new int[V][V];
         int i = 0;
         int j = 0;
         int k = 0;
-        int[][] p = new int[graph.length][graph.length];
-        for (i = 0; i < graph.length; i++) {
-            for (j = 0; j < graph.length; j++) {
-                p[i][j] = -1;
+        int[][] p = new int[V][V];
+        for (i = 0; i < V; i++) {
+            for (j = 0; j < V; j++) {
+                if(i==j || graph[i][j] == INF) {
+                    pred[i][j] = -1;
+                }
+                if(i != j && graph[i][j] < INF) {
+                    pred[i][j] = i;
+                }
             }
         }
+
         for (k = 0; k < graph.length; k++) {
             for (i = 0; i < graph.length; i++) {
                 for (j = 0; j < graph.length; j++) {
