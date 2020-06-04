@@ -8,11 +8,11 @@ import java.util.Collections;
 
 public class truffles2 {
     public static int colnumber;
+    public static int rownumber;
     public static int INF = 99999;
     public static ArrayList<Integer> path = new ArrayList<Integer>();
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
-     public static ArrayList<Integer> globalnodes = new ArrayList<Integer>();
-    public static int maxpath;
+    public static ArrayList<Integer> globalnodes = new ArrayList<Integer>();
 public static void floydWarshall(int graph[][], int V) { 
         int i = 0;
         int j = 0;
@@ -67,12 +67,23 @@ public static void floydWarshall(int graph[][], int V) {
             System.out.println("");
         }
         int max = 0;
-        getPath(p,0,6);
-        for (i = 0; i < currentpath.size(); i++) {
-             max = max + currentpath.get(i);
+        int currentmax = 0;
+        for(int i = 0; i< rownumber; i++) {
+            for(int j = nodes - rownumber; j< nodes; j++) {
+                currentmax = 0;
+                getPath(p,i,j);
+                for (i = 0; i < currentpath.size(); i++) {
+                    currentmax = currentmax + currentpath.get(i);
+                }
+                if(currentmax > max) {
+                    max = currentmax;
+                }
+                Collections.copy(path,currentpath);
+                currentpath.clear();
+            }
         }
         System.out.println("Maximum truffles is: " + max);
-        System.out.println(Arrays.toString(currentpath.toArray()));
+        System.out.println(Arrays.toString(path.toArray()));
     }
     
   public static void getPath(int[][] predecessor, int i, int j) {
@@ -91,6 +102,7 @@ public static void floydWarshall(int graph[][], int V) {
         int colcount = 3;
         int rowcount = 3;
         colnumber = colcount;
+        rownumber = rowcount;
         int nodes = colcount * rowcount;
         int[] nodelist = new int[nodes];
         int count = 0;
