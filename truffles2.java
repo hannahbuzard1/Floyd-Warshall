@@ -68,8 +68,8 @@ public static void floydWarshall(int graph[][], int V) {
         }
         int max = 0;
         int currentmax = 0;
-        for(i = 0; i< colcount; i++) {
-            for(j = V - colcount; j< V; j++) {
+        for(i = 0; i< colnumber; i++) {
+            for(j = V - colnumber; j< V; j++) {
                 System.out.println(i);
                 System.out.println(j);
                 currentmax = 0;
