@@ -97,7 +97,7 @@ public static void floydWarshall(int graph[][], int V) {
       currentpath.add(globalnodes.get(j));
     }
   }
-    public static void main(String args[]) { 
+    public static void main(String args[]) throws FileNotFoundException { { 
         //get row and column sizes from file
         int colcount = 3;
         int rowcount = 3;
@@ -113,14 +113,9 @@ public static void floydWarshall(int graph[][], int V) {
         while(input.hasNextLine()) {
             ++rows;
             Scanner colReader = new Scanner(input.nextLine());
-            try {
-                while(colReader.hasNextInt())
-                {
-                    ++columns;
-                }
-        } catch (java.util.InputMismatchException e) {
-            input.nextLine();
-        }
+            while(colReader.hasNextInt()) {
+                ++columns;
+            }
     }
         
         try {
