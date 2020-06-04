@@ -206,6 +206,7 @@ public static void floydWarshall(int graph[][], int V) {
                             System.out.println("line 206");
                             weights[i][j] = nodelist[j];
                         } else {
+                            System.out.println("I am here");
                             weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
                             weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
                             weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];   
