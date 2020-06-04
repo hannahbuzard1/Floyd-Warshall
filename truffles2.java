@@ -70,8 +70,8 @@ public static void floydWarshall(int graph[][], int V) {
         int currentmax = 0;
         for(i = 0; i< colnumber; i++) {
             for(j = V - colnumber; j< V; j++) {
-                System.out.println(i);
-                System.out.println(j);
+                System.out.println("I val" + i);
+                System.out.println("J val" + j);
                 currentmax = 0;
                 getPath(p,i,j);
                 for (i = 0; i < currentpath.size(); i++) {
