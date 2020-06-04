@@ -68,17 +68,20 @@ public static void floydWarshall(int graph[][], int V) {
         }
         int max = 0;
         int currentmax = 0;
-        for(i = 1; i< 2; i++) {
-            for(j = 10; j< 11; j++) {
+        for(i = 0; i< colcount; i++) {
+            for(j = V - colcount; j< V; j++) {
+                System.out.println(i);
+                System.out.println(j);
                 currentmax = 0;
                 getPath(p,i,j);
                 for (i = 0; i < currentpath.size(); i++) {
                     currentmax = currentmax + currentpath.get(i);
                 }
+                System.out.println("Current max: " + currentmax);
                 if(currentmax > max) {
                     max = currentmax;
+                    path = (ArrayList<Integer>)currentpath.clone();
                 }
-                path = (ArrayList<Integer>)currentpath.clone();
                 currentpath.clear();
             }
         }
