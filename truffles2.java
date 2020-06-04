@@ -29,9 +29,9 @@ public static void floydWarshall(int graph[][], int V) {
             }
         }
 
-        for (k = 0; k < graph.length; k++) {
-            for (i = 0; i < graph.length; i++) {
-                for (j = 0; j < graph.length; j++) {
+        for (k = 0; k < V; k++) {
+            for (i = 0; i < V; i++) {
+                for (j = 0; j < V; j++) {
                     if (graph[i][k] == INF || graph[k][j] == INF) {
                         continue;                 
                     }
