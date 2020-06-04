@@ -99,17 +99,13 @@ public static void floydWarshall(int graph[][], int V) {
   }
     public static void main(String args[]) throws FileNotFoundException { 
         //get row and column sizes from file
-        int colcount = 3;
-        int rowcount = 3;
-        colnumber = colcount;
-        rownumber = rowcount;
         int nodes = colcount * rowcount;
         int[] nodelist = new int[nodes];
         int count = 0;
-        Scanner input = new Scanner (new File("src/array.txt"));
+        Scanner input = new Scanner (new File("test.txt"));
         // pre-read in the number of rows/columns
-        int rows = 0;
-        int columns = 0;
+        int rowcount = 0;
+        int colcount = 0;
         while(input.hasNextLine()) {
             ++rows;
             Scanner colReader = new Scanner(input.nextLine());
@@ -117,7 +113,8 @@ public static void floydWarshall(int graph[][], int V) {
                 ++columns;
             }
         }
-        
+        colnumber = colcount;
+        rownumber = rowcount;
         try {
             //fill in matrix using file
             input = new Scanner(new File("test.txt"));
