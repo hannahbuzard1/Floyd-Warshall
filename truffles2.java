@@ -112,14 +112,17 @@ public static void floydWarshall(int graph[][], int V) {
             for(int j =0; j<nodes;j++) {
                 if(i == j) {
                     System.out.println("here");
+                    System.out.println(j);
                     weights[i][i] = 0;
                 }
                 else if(j < i) {
                     System.out.println("Now here");
+                    System.out.println(j);
                     weights[i][j] = INF;    
                 }
                 else if (j < i + rowcount) {
                     System.out.println("And here");
+                    System.out.println(j);
                     weights[i][j] = INF;
                 }
                 else if (nodes - i > rowcount) {
