@@ -68,8 +68,8 @@ public static void floydWarshall(int graph[][], int V) {
         }
         int max = 0;
         int currentmax = 0;
-        for(int i = 0; i< rownumber; i++) {
-            for(int j = nodes - rownumber; j< nodes; j++) {
+        for(i = 0; i< rownumber; i++) {
+            for(j = V - rownumber; j< V; j++) {
                 currentmax = 0;
                 getPath(p,i,j);
                 for (i = 0; i < currentpath.size(); i++) {
