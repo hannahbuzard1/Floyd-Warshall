@@ -121,7 +121,7 @@ public static void floydWarshall(int graph[][], int V) {
         
         try {
             //fill in matrix using file
-            Scanner input = new Scanner(new File("test.txt"));
+            input = new Scanner(new File("test.txt"));
             for(int i = 0; i < rowcount; ++i) {
                 for(int j = 0; j < colcount; ++j) {
                     if(input.hasNextInt()) {
