@@ -102,7 +102,7 @@ public static void floydWarshall(int graph[][], int V) {
         //get row and column sizes from file
         int count = 0;
         // pre-read in the number of rows/columns
-        String filename = "test.txt";
+        String filename = args[0];
         int rowcount = 0;
         int colcount = 0;
         List<String> lines = new ArrayList<String>();
