@@ -110,18 +110,18 @@ public static void floydWarshall(int graph[][], int V) {
         // pre-read in the number of rows/columns
         int rows = 0;
         int columns = 0;
-        try {
-            while(input.hasNextLine()) {
-                ++rows;
-                Scanner colReader = new Scanner(input.nextLine());
+        while(input.hasNextLine()) {
+            ++rows;
+            Scanner colReader = new Scanner(input.nextLine());
+            try {
                 while(colReader.hasNextInt())
                 {
                     ++columns;
                 }
-            }
-        } catch(IOException e) {
-            e.printStackTrace();    
+        } catch (java.util.InputMismatchException e) {
+            input.nextLine();
         }
+    }
         
         try {
             //fill in matrix using file
