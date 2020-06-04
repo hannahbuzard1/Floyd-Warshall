@@ -123,6 +123,8 @@ public static void floydWarshall(int graph[][], int V) {
         colcount = lines.size();
         colnumber = colcount;
         rownumber = rowcount;
+        System.out.println("Columns:" + colcount);
+        System.out.println("Rows: " + rowcount);
         int nodes = colcount * rowcount;
         int[] nodelist = new int[nodes];
         try {
