@@ -21,10 +21,10 @@ public static void floydWarshall(int graph[][], int V) {
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {
                 if(i==j || graph[i][j] == INF) {
-                    pred[i][j] = -1;
+                    p[i][j] = -1;
                 }
                 if(i != j && graph[i][j] < INF) {
-                    pred[i][j] = i;
+                    p[i][j] = i;
                 }
             }
         }
