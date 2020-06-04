@@ -158,39 +158,23 @@ public static void floydWarshall(int graph[][], int V) {
                 else if(j < i) {
                     weights[i][j] = INF;    
                 }
-                else if (nodes - i > colcount) {
+                else if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) {
+                            weights[i][j] = nodelist[j];
+                        }
+                else  {
                     if(i % colcount == 0 && j == i+colcount) {
-                        if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) {
-                            weights[i][j] = nodelist[j];
-                        } else {
                             weights[i][j] = nodelist[i] + nodelist[j];
-                        }
                     }
-                    else if (i % colcount == 0 && j == i+colcount+1) {
-                        if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) {
-                            weights[i][j] = nodelist[j];
-                        } else {
+                    else if (i % colcount == 0 && j == i+colcount+1) { 
                             weights[i][j] = nodelist[i] + nodelist[j]; 
-                        }
                     }
                     else if (i % colcount == colcount - 1 && j == i + colcount) {
-                        if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) {
-                            weights[i][j] = nodelist[j];
-                        } else {
                             weights[i][j] = nodelist[i] + nodelist[j];
                         }
-                    }
                     else if (i % colcount == colcount - 1 && j == i + colcount - 1) {
-                        if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) {
-                            weights[i][j] = nodelist[j];
-                        } else {
                             weights[i][j] = nodelist[i] + nodelist[j];
-                        }
                     }
                     else if (i % colcount != 0 && i % colcount != colcount - 1) {
-                        if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) {
-                            weights[i][j] = nodelist[j];
-                        } else {
                             weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
                             weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
                             weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];   
@@ -198,7 +182,6 @@ public static void floydWarshall(int graph[][], int V) {
                     }
                 }
             }
-        }
         System.out.println("Weight matrix:");
         for(int i=0; i<nodes; i++) {
             for (int j=0; j<nodes; j++) {
