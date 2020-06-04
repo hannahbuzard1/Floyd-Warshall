@@ -62,7 +62,7 @@ public static void floydWarshall(int graph[][], int V) {
             System.out.println("");
         }
         int max = 0;
-        //getPath(p,0,8);
+        getPath(p,0,8);
         for (i = 0; i < currentpath.size(); i++) {
              max = max + currentpath.get(i);
         }
@@ -108,21 +108,16 @@ public static void floydWarshall(int graph[][], int V) {
                 weights[i][j] = INF;
             }
         }
-        for(int i=5; i<6; i++) {
+        for(int i=0; i<nodes; i++) {
             for(int j =0; j<nodes;j++) {
                 if(i == j) {
-                    System.out.println("here");
-                    System.out.println(j);
                     weights[i][i] = 0;
                 }
                 else if(j < i) {
-                    System.out.println("Now here");
-                    System.out.println(j);
                     weights[i][j] = INF;    
                 }
                 else if (nodes - i > rowcount) {
                     if(i % colcount == 0 && j == i+colcount) {
-                        System.out.println("line 129 ");
                         if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
                             weights[i][j] = nodelist[j];
                         } else {
@@ -133,7 +128,6 @@ public static void floydWarshall(int graph[][], int V) {
                         if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
                             weights[i][j] = nodelist[j];
                         } else {
-                            System.out.println("line 133 ");
                             weights[i][j] = nodelist[i] + nodelist[j]; 
                         }
                     }
@@ -141,7 +135,6 @@ public static void floydWarshall(int graph[][], int V) {
                         if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
                             weights[i][j] = nodelist[j];
                         } else {
-                            System.out.println("line 137");
                             weights[i][j] = nodelist[i] + nodelist[j];
                         }
                     }
@@ -149,7 +142,6 @@ public static void floydWarshall(int graph[][], int V) {
                         if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
                             weights[i][j] = nodelist[j];
                         } else {
-                            System.out.println("line 141");
                             weights[i][j] = nodelist[i] + nodelist[j];
                         }
                     }
@@ -157,7 +149,6 @@ public static void floydWarshall(int graph[][], int V) {
                         if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
                             weights[i][j] = nodelist[j];
                         } else {
-                            System.out.println("line 145"); 
                             weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
                             weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
                             weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];   
