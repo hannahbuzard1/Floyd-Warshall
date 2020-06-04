@@ -161,7 +161,7 @@ public static void floydWarshall(int graph[][], int V) {
                 else if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) {
                             weights[i][j] = nodelist[j];
                         }
-                else  {
+                else if (nodes - i > colcount)  {
                     if(i % colcount == 0 && j == i+colcount) {
                             weights[i][j] = nodelist[i] + nodelist[j];
                     }
