@@ -72,12 +72,13 @@ public static void floydWarshall(int graph[][], int V) {
     
   public static void getPath(int[][] predecessor, int i, int j) {
     //base case
-     if(i == j) {
-      System.out.println(globalnodes.get(i) + " ");
+    if(i == j) {
+      currentpath.add(globalnodes.get(i));
     } else {
       //recursive call
       getPath(predecessor, i, predecessor[i][j]);
-      System.out.println(globalnodes.get(j));
+      //add index to global index array
+      currentpath.add(globalnodes.get(j));
     }
   }
     public static void main(String args[]) { 
