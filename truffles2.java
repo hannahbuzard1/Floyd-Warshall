@@ -120,11 +120,6 @@ public static void floydWarshall(int graph[][], int V) {
                     System.out.println(j);
                     weights[i][j] = INF;    
                 }
-                else if (j < i + rowcount) {
-                    System.out.println("And here");
-                    System.out.println(j);
-                    weights[i][j] = INF;
-                }
                 else if (nodes - i > rowcount) {
                     if (i >=nodes - (rowcount * 2) && i < nodes - rowcount && j >= nodes - rowcount) {
                         System.out.println("line 125");
