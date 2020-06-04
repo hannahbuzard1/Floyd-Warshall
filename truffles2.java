@@ -120,7 +120,7 @@ public static void floydWarshall(int graph[][], int V) {
             e.printStackTrace(); 
         }
         rowcount = counter;
-        String[] numbers = lines.get(i).split(" ");
+        String[] numbers = lines.get(0).split(" ");
         int stringsize = numbers.length;
         colcount = stringsize;
         colnumber = colcount;
