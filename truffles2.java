@@ -78,7 +78,7 @@ public static void floydWarshall(int graph[][], int V) {
                 if(currentmax > max) {
                     max = currentmax;
                 }
-                Collections.copy(path,currentpath);
+                path = currentpath;
                 currentpath.clear();
             }
         }
