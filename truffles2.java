@@ -73,9 +73,9 @@ public class truffles2 {
         }
         //print results
         System.out.println("Maximum truffles is: " + max);
-        System.out.print("Locations:");
+        System.out.print("Locations: ");
         System.out.println(Arrays.toString(path.toArray()));
-        System.out.print("Nodes visited (in order):");
+        System.out.print("Nodes visited (in order): ");
         System.out.println(Arrays.toString(pathnodes.toArray()));
     }
     
