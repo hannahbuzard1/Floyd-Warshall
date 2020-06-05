@@ -14,7 +14,7 @@ public class truffles2 {
     public static ArrayList<Integer> path = new ArrayList<Integer>(); //overall longest path
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
     public static ArrayList<Integer> globalnodes = new ArrayList<Integer>(); //list of input nodes
-    public static ArrayList<Integer> globalloc = new ArrayList<Integer>(); //list of input locations
+    public static ArrayList<String> globalloc = new ArrayList<String>(); //list of input locations
     public static ArrayList<String> currentpath = new ArrayList<String>();
     
     public static void floydWarshall(int graph[][], int V) { 
