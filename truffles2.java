@@ -15,7 +15,7 @@ public class truffles2 {
     public static ArrayList<Integer> pathnodes = new ArrayList<Integer>();
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
     public static ArrayList<Integer> globalnodes = new ArrayList<Integer>(); //list of input nodes
-    public static ArrayList<String> globalloc = new ArrayList<String>(); //list of input locations
+    public static ArrayList<String> globalloc = new ArrayList<String>(); //lists of input locations
     public static ArrayList<String> currentloc = new ArrayList<String>();
     
     public static void floydWarshall(int graph[][], int V) { 
@@ -130,7 +130,7 @@ public class truffles2 {
                 for(int j = 0; j < colcount; ++j) {
                     if(input.hasNextInt()) {
                         nodelist[count] = input.nextInt();
-                        nodeloc[count] = "[" + i + ", " + j + "]";
+                        nodeloc[count] = "[" + i+1 + ", " + j + "]";
                         count++;
                     }
                 }
