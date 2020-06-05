@@ -129,8 +129,9 @@ public class truffles2 {
             for(int i = 0; i < rowcount; ++i) {
                 for(int j = 0; j < colcount; ++j) {
                     if(input.hasNextInt()) {
+                        int val = i + 1
                         nodelist[count] = input.nextInt();
-                        nodeloc[count] = "[" + i+1 + ", " + j + "]";
+                        nodeloc[count] = "[" + val + ", " + j + "]";
                         count++;
                     }
                 }
