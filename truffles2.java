@@ -14,6 +14,8 @@ public class truffles2 {
     public static ArrayList<Integer> path = new ArrayList<Integer>(); //overall longest path
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
     public static ArrayList<Integer> globalnodes = new ArrayList<Integer>(); //list of input nodes
+    public static ArrayList<Integer> globalloc = new ArrayList<Integer>(); //list of input locations
+    public static ArrayList<String> currentpath = new ArrayList<String>();
     
     public static void floydWarshall(int graph[][], int V) { 
         int i = 0;
@@ -61,9 +63,10 @@ public class truffles2 {
                 }
                 if(currentmax > max) {
                     max = currentmax;
-                    path = (ArrayList<Integer>)currentpath.clone();
+                    path = (ArrayList<Integer>)currentloc.clone();
                 }
                 currentpath.clear();
+                currentloc.clear();
             }
         }
         //print results
@@ -75,11 +78,13 @@ public class truffles2 {
     //base case
     if(i == j) {
       currentpath.add(globalnodes.get(i));
+      currentloc.add(globalloc.get(i));
     } else {
       //recursive call
       getPath(predecessor, i, predecessor[i][j]);
       //add index to global index array
       currentpath.add(globalnodes.get(j));
+      currentloc.add(globalloc.get(j));
     }
   }
     public static void main(String args[]) throws FileNotFoundException { 
@@ -112,6 +117,7 @@ public class truffles2 {
         rownumber = rowcount;
         int nodes = colcount * rowcount;
         int[] nodelist = new int[nodes];
+        String[] nodeloc = new String[nodes];
         //fill in list of nodes using input file
         try {
             Scanner input = new Scanner(new File(filename));
@@ -119,6 +125,7 @@ public class truffles2 {
                 for(int j = 0; j < colcount; ++j) {
                     if(input.hasNextInt()) {
                         nodelist[count] = input.nextInt();
+                        nodeloc[count] = "[" + i + ", " + j + " ]";
                         count++;
                     }
                 }
@@ -168,6 +175,9 @@ public class truffles2 {
             }
         for (int i=0; i< nodelist.length; i++) { //add nodes to global list of nodes (so able to access in other methods)
             globalnodes.add(nodelist[i]);
+        }
+        for(int i = 0; i < nodeloc.length; i++) {
+            globalloc.add(nodeloc[i]);
         }
         for(int i=0; i<nodes; i++) { //convert to negative weights so longest path can be computed
             for (int j=0; j<nodes; j++) {
