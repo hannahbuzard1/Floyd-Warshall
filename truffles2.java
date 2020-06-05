@@ -46,9 +46,9 @@ public class truffles2 {
             }
          }
          //call function to get longest path
-         pathRetrieval(graph, p);
+         pathRetrieval(graph, p, V);
     }
-    public static void pathRetrieval(int[][] graph, int[][] p) {
+    public static void pathRetrieval(int[][] graph, int[][] p, int V) {
         //get overall longest path 
         int max = 0;
         int currentmax = 0;
