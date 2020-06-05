@@ -7,23 +7,26 @@ import java.lang.*;
 import java.util.Collections;
 
 public class truffles2 {
+    //global variables
     public static int colnumber;
     public static int rownumber;
     public static int INF = 99999;
-    public static ArrayList<Integer> path = new ArrayList<Integer>();
+    public static ArrayList<Integer> path = new ArrayList<Integer>(); //overall longest path
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
-    public static ArrayList<Integer> globalnodes = new ArrayList<Integer>();
-public static void floydWarshall(int graph[][], int V) { 
+    public static ArrayList<Integer> globalnodes = new ArrayList<Integer>(); //list of input nodes
+    
+    public static void floydWarshall(int graph[][], int V) { 
         int i = 0;
         int j = 0;
         int k = 0;
         int[][] p = new int[V][V];
+        //initialize values in predecessor matrix
         for (i = 0; i < V; i++) {
             for (j = 0; j < V; j++) {
-                if(i==j || graph[i][j] == INF) {
+                if(i==j || graph[i][j] == INF) { //no path exists,then -1
                     p[i][j] = -1;
                 }
-                if(i != j && graph[i][j] < INF) {
+                if(i != j && graph[i][j] < INF) { //if path exists, predecessor is i
                     p[i][j] = i;
                 }
             }
@@ -35,13 +38,18 @@ public static void floydWarshall(int graph[][], int V) {
                     if (graph[i][k] == INF || graph[k][j] == INF) {
                         continue;                 
                     }
-                    if (graph[i][j] > graph[i][k] + graph[k][j]) {
-                        graph[i][j] = graph[i][k] + graph[k][j];
+                    if (graph[i][j] > graph[i][k] + graph[k][j]) { //if there is a shorter path than directly i to j....
+                        graph[i][j] = graph[i][k] + graph[k][j]; //update [i][j] in graph and in predecessor matrix
                         p[i][j] = p[k][j];
                     }
                 }
             }
-         } 
+         }
+         //call function to get longest path
+         pathRetrieval(graph, p);
+    }
+    public static void pathRetrieval(int[][] graph, int[][] p) {
+        //get overall longest path 
         int max = 0;
         int currentmax = 0;
         for(int ival = 0; ival < colnumber; ival++) {
@@ -58,6 +66,7 @@ public static void floydWarshall(int graph[][], int V) {
                 currentpath.clear();
             }
         }
+        //print results
         System.out.println("Maximum truffles is: " + max);
         System.out.println(Arrays.toString(path.toArray()));
     }
@@ -101,12 +110,10 @@ public static void floydWarshall(int graph[][], int V) {
         colcount = stringsize;
         colnumber = colcount;
         rownumber = rowcount;
-        System.out.println("Columns:" + colcount);
-        System.out.println("Rows: " + rowcount);
         int nodes = colcount * rowcount;
         int[] nodelist = new int[nodes];
+        //fill in list of nodes using input file
         try {
-            //fill in matrix using file
             Scanner input = new Scanner(new File(filename));
             for(int i = 0; i < rowcount; ++i) {
                 for(int j = 0; j < colcount; ++j) {
@@ -119,38 +126,39 @@ public static void floydWarshall(int graph[][], int V) {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(Arrays.toString(nodelist));
+        //initialize weight matrix
         int[][] weights = new int [nodes][nodes];
         for(int i=0; i<nodes; i++) {
             for (int j=0; j<nodes; j++) {
                 weights[i][j] = INF;
             }
         }
+        //fill in weight matrix (to represent weighted, directed graph)
         for(int i=0; i<nodes; i++) {
             for(int j =0; j<nodes;j++) {
-                if(i == j) {
+                if(i == j) { //path to itself is 0
                     weights[i][i] = 0;
                 }
-                else if(j < i) {
+                else if(j < i) { //no path, then INF
                     weights[i][j] = INF;    
                 }
-                else if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) {
+                else if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) { //last row in input
                             weights[i][j] = nodelist[j];
                         }
                 else if (nodes - i > colcount)  {
-                    if(i % colcount == 0 && j == i+colcount) {
+                    if(i % colcount == 0 && j == i+colcount) { //node is on left side of input (only 2 edges to other nodes)
                             weights[i][j] = nodelist[i] + nodelist[j];
                     }
-                    else if (i % colcount == 0 && j == i+colcount+1) { 
+                    else if (i % colcount == 0 && j == i+colcount+1) {  //node is on left side of input (only 2 edges to other nodes)
                             weights[i][j] = nodelist[i] + nodelist[j]; 
                     }
-                    else if (i % colcount == colcount - 1 && j == i + colcount) {
+                    else if (i % colcount == colcount - 1 && j == i + colcount) { //node is on right side of input (only 2 edges to other nodes)
                             weights[i][j] = nodelist[i] + nodelist[j];
                         }
-                    else if (i % colcount == colcount - 1 && j == i + colcount - 1) {
+                    else if (i % colcount == colcount - 1 && j == i + colcount - 1) { //node is on right side of input (only 2 edges to other nodes)
                             weights[i][j] = nodelist[i] + nodelist[j];
                     }
-                    else if (i % colcount != 0 && i % colcount != colcount - 1) {
+                    else if (i % colcount != 0 && i % colcount != colcount - 1) { //node has 3 edges to other nodes (down and both diagonals)
                             weights[i][i + colcount] = nodelist[i] + nodelist[i + colcount];
                             weights[i][i + colcount + 1] = nodelist[i] + nodelist[i + colcount + 1];
                             weights[i][i + colcount - 1 ] = nodelist[i] + nodelist[i + colcount - 1];   
@@ -158,10 +166,10 @@ public static void floydWarshall(int graph[][], int V) {
                     }
                 }
             }
-        for (int i=0; i< nodelist.length; i++) {
+        for (int i=0; i< nodelist.length; i++) { //add nodes to global list of nodes (so able to access in other methods)
             globalnodes.add(nodelist[i]);
         }
-        for(int i=0; i<nodes; i++) {
+        for(int i=0; i<nodes; i++) { //convert to negative weights so longest path can be computed
             for (int j=0; j<nodes; j++) {
                 if(weights[i][j] != INF) {
                     weights[i][j] = -(weights[i][j]);
