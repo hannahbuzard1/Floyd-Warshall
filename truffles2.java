@@ -12,6 +12,7 @@ public class truffles2 {
     public static int rownumber;
     public static int INF = 99999;
     public static ArrayList<Integer> path = new ArrayList<Integer>(); //overall longest path
+    public static ArrayList<Integer> pathnodes = new ArrayList<Integer>();
     public static ArrayList<Integer> currentpath = new ArrayList<Integer>();
     public static ArrayList<Integer> globalnodes = new ArrayList<Integer>(); //list of input nodes
     public static ArrayList<String> globalloc = new ArrayList<String>(); //list of input locations
@@ -64,6 +65,7 @@ public class truffles2 {
                 if(currentmax > max) {
                     max = currentmax;
                     path = (ArrayList<Integer>)currentloc.clone();
+                    pathnodes = (ArrayList<Integer>)currentpath.clone();
                 }
                 currentpath.clear();
                 currentloc.clear();
@@ -71,7 +73,10 @@ public class truffles2 {
         }
         //print results
         System.out.println("Maximum truffles is: " + max);
+        System.out.print("Locations:");
         System.out.println(Arrays.toString(path.toArray()));
+        System.out.print("Nodes visited (in order):");
+        System.out.println(Arrays.toString(pathnodes.toArray()));
     }
     
   public static void getPath(int[][] predecessor, int i, int j) {
@@ -125,7 +130,7 @@ public class truffles2 {
                 for(int j = 0; j < colcount; ++j) {
                     if(input.hasNextInt()) {
                         nodelist[count] = input.nextInt();
-                        nodeloc[count] = "[" + i + ", " + j + " ]";
+                        nodeloc[count] = "[" + i + ", " + j + "]";
                         count++;
                     }
                 }
