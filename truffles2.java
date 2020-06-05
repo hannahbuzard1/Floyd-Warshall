@@ -42,30 +42,6 @@ public static void floydWarshall(int graph[][], int V) {
                 }
             }
          } 
-        System.out.println("Dist matrix:");
-        for (i = 0; i < V; i++) {
-            for (j = 0; j < V; j++) {
-                if(graph[i][j] == INF) {
-                    System.out.print("INF");
-                } else {
-                    System.out.print(graph[i][j]); 
-                }
-                System.out.print(" "); 
-            }
-            System.out.println("");
-        }
-        System.out.println("Pred matrix:");
-        for (i = 0; i < V; i++) {
-            for (j = 0; j < V; j++) {
-                if(p[i][j] == -1) {
-                    System.out.print("NULL");
-                } else {
-                    System.out.print(p[i][j]); 
-                }
-                System.out.print(" "); 
-            }
-            System.out.println("");
-        }
         int max = 0;
         int currentmax = 0;
         for(int ival = 0; ival < colnumber; ival++) {
@@ -182,18 +158,6 @@ public static void floydWarshall(int graph[][], int V) {
                     }
                 }
             }
-        System.out.println("Weight matrix:");
-        for(int i=0; i<nodes; i++) {
-            for (int j=0; j<nodes; j++) {
-                if(weights[i][j] == INF) {
-                    System.out.print("INF");
-                } else {
-                    System.out.print(weights[i][j]);
-                }
-                System.out.print(" ");
-            }
-            System.out.println("");
-        }
         for (int i=0; i< nodelist.length; i++) {
             globalnodes.add(nodelist[i]);
         }
