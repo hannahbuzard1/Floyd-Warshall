@@ -122,6 +122,7 @@ public class truffles2 {
         rownumber = rowcount;
         int nodes = colcount * rowcount;
         int[] nodelist = new int[nodes];
+        System.out.println(Array.toString(nodelist));
         String[] nodeloc = new String[nodes];
         //fill in list of nodes using input file
         try {
@@ -179,6 +180,14 @@ public class truffles2 {
                     }
                 }
             }
+        for(int i=0; i< nodes; i++) {
+            for (int j =0; j < nodes; j++) {
+                System.out.print(weights[i][j]);
+                System.out.print(" ");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
         for (int i=0; i< nodelist.length; i++) { //add nodes to global list of nodes (so able to access in other methods)
             globalnodes.add(nodelist[i]);
         }
