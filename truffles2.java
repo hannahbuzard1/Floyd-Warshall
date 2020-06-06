@@ -115,10 +115,15 @@ public class truffles2 {
             e.printStackTrace(); 
         }
         rowcount = counter;
+        //get number of columns by splitting string into integers and counting number of ints
         String str = lines.get(0);
         String numbersOnly= str.replaceAll("[^0-9]", " ");
-        System.out.println(numbersOnly);
-        int stringsize = numbersOnly.length();
+        String[] split = numbersOnly.split(" ");
+        int[] numbers1 = new int[split.length];
+        for(int i = 0; i < split.length; i++) {
+            numbers1[i] = Integer.parseInt(split[i]);
+        }
+        int stringsize = numbers1.length;
         colcount = stringsize;
         colnumber = colcount;
         rownumber = rowcount;
