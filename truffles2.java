@@ -129,13 +129,15 @@ public class truffles2 {
             Scanner input = new Scanner(new File(filename));
             for(int i = 0; i < rowcount; ++i) {
                 for(int j = 0; j < colcount; ++j) {
-                    if(input.hasNextInt()) {
+                    if(input.hasNext()) {
                         int val = i + 1; //need this for one-indexed representation
-                        System.out.print("Next int: ");
-                        System.out.println(input.nextInt());
-                        nodelist[count] = input.nextInt();
-                        nodeloc[count] = "[" + val + ", " + j + "]";
-                        count++;
+                        if(input.next() != ' ') {
+                            System.out.print("Next int: ");
+                            System.out.println(input.nextInt());
+                            nodelist[count] = input.nextInt();
+                            nodeloc[count] = "[" + val + ", " + j + "]";
+                            count++;
+                        }
                     }
                 }
             }
