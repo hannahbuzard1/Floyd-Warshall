@@ -115,9 +115,9 @@ public class truffles2 {
             e.printStackTrace(); 
         }
         rowcount = counter;
-        System.out.println(lines.get(0));
-        String[] numbers = lines.get(0).split("    ");
-        int stringsize = numbers.length;
+        String str = lines.get(0);
+        String numbersOnly= str.replaceAll("[^0-9]", "");
+        int stringsize = numbersOnly.length();
         colcount = stringsize;
         colnumber = colcount;
         rownumber = rowcount;
