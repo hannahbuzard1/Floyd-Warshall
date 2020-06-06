@@ -116,7 +116,8 @@ public class truffles2 {
         }
         rowcount = counter;
         String str = lines.get(0);
-        String numbersOnly= str.replaceAll("[^0-9]", "");
+        String numbersOnly= str.replaceAll("[^0-9]", " ");
+        System.out.println(numbersOnly);
         int stringsize = numbersOnly.length();
         colcount = stringsize;
         colnumber = colcount;
