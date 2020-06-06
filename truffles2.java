@@ -157,8 +157,18 @@ public class truffles2 {
                     weights[i][j] = INF;    
                 }
                 else if (i >=nodes - (colcount * 2) && i < nodes - colcount && j >= nodes - colcount) { //last row in input
-                            weights[i][j] = nodelist[j];
-                        }
+                    if(i%colcount == 0 && j == i+colcount || i %colcount ==0 && j ==i+colcount+1) }
+                        weights[i][j] = nodelist[j];
+                    }
+                    else if (i%colcount == colcount - 1 && j == i + colcount || i%colcount == colcount -1 && j == i + colcount - 1) {
+                        weights[i][j] = nodelist[j];
+                    }
+                    else if (i % colcount != 0 && i % colcount != colcount - 1) {
+                        weights[i][i + colcount] = nodelist[i + colcount];
+                        weights[i][i + colcount + 1] = nodelist[i +colcount + 1];
+                        weights[i][i + colcount - 1 ] = nodelist[i + colcount - 1];     
+                    }
+                }
                 else if (nodes - i > colcount)  {
                     if(i % colcount == 0 && j == i+colcount) { //node is on left side of input (only 2 edges to other nodes)
                             weights[i][j] = nodelist[i] + nodelist[j];
