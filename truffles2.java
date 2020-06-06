@@ -131,7 +131,7 @@ public class truffles2 {
                 for(int j = 0; j < colcount; ++j) {
                     if(input.hasNext()) {
                         int val = i + 1; //need this for one-indexed representation
-                        if(input.next() != ' ') {
+                        if(input.next() != " ") {
                             System.out.print("Next int: ");
                             System.out.println(input.nextInt());
                             nodelist[count] = input.nextInt();
