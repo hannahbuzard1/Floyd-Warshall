@@ -130,8 +130,6 @@ public class truffles2 {
         int nodes = colcount * rowcount;
         int[] nodelist = new int[nodes];
         String[] nodeloc = new String[nodes];
-        System.out.println("rows " + rowcount);
-        System.out.println("cols " + colcount);
         //fill in list of nodes using input file
         try {
             Scanner input = new Scanner(new File(filename));
@@ -148,7 +146,6 @@ public class truffles2 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(Arrays.toString(nodelist));
         //initialize weight matrix
         int[][] weights = new int [nodes][nodes];
         for(int i=0; i<nodes; i++) {
