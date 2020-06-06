@@ -190,18 +190,6 @@ public class truffles2 {
                     }
                 }
             }
-        for(int i=0; i< nodes; i++) {
-            for (int j =0; j < nodes; j++) {
-                if(weights[i][j] == INF) {
-                    System.out.print("INF");
-                } else {
-                    System.out.print(weights[i][j]);
-                }
-                System.out.print(" ");
-            }
-            System.out.println("");
-        }
-        System.out.println("");
         for (int i=0; i< nodelist.length; i++) { //add nodes to global list of nodes (so able to access in other methods)
             globalnodes.add(nodelist[i]);
         }
