@@ -122,7 +122,7 @@ public class truffles2 {
         rownumber = rowcount;
         int nodes = colcount * rowcount;
         int[] nodelist = new int[nodes];
-        System.out.println(Array.toString(nodelist));
+        System.out.println(Arrays.toString(nodelist));
         String[] nodeloc = new String[nodes];
         //fill in list of nodes using input file
         try {
