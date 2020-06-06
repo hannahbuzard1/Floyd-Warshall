@@ -182,7 +182,11 @@ public class truffles2 {
             }
         for(int i=0; i< nodes; i++) {
             for (int j =0; j < nodes; j++) {
-                System.out.print(weights[i][j]);
+                if(weights[i][j] == INF) {
+                    System.out.println("INF");
+                } else {
+                    System.out.print(weights[i][j]);
+                }
                 System.out.print(" ");
             }
             System.out.println("");
